@@ -27,7 +27,7 @@ class Retangulo {
     if (check == true) {
 
     } else if (check == false) {
-      size += 1;
+      size += 5;
     }
     
     if (size >= 500) {

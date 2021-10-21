@@ -2,8 +2,7 @@
 color bg = color(18);
 color sph = color(210);
 float EposX = 250; float EposY = 250; float RposX = 250; float RposY = 250;
-float d = dist(EposX, EposY, RposX, RposY);
-//float d = dist(EposX, EposY, RposX, RposY); //calcular a distancia entre os dois pontos, como apenas calcula 1x, copiei isto para o draw()
+float d = dist(EposX, EposY, RposX, RposY); //calcular a distancia entre os dois pontos, como apenas calcula 1x, copiei isto para o draw()
 int moveDistance = 35; // a distancia com q a esfera se vai mexer
 
 //tamanho do canvas e no stroke + spec. framerate
@@ -11,12 +10,14 @@ void setup() {
 size(500, 500);
 frameRate(10);
 noStroke();
+rectMode(CENTER);
+ellipseMode(CENTER);
 }
 
 void draw() {
 background(bg);
 d = dist(EposX, EposY, RposX, RposY);
-if (d <= 50) {
+if (d <= 80) {
 fill(40,40,244);//azul
 }else{
 fill(200,100,45);//laranja
@@ -68,7 +69,7 @@ if (randomNum == 1) {
 } else if (randomNum == 4) {
   RposY = RposY - moveDistance;
 }
-//statement block para não deixar a esfera sair do canvas
+//não deixar a esfera sair do canvas
 if (RposX > 400) {
   RposX = 400;
 } else if (RposX < 50) {

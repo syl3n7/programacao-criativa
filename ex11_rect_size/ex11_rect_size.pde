@@ -9,7 +9,7 @@ void setup() {
 }
 
 void draw() {
-
+  background(0);
   r.desenha();
   r.mover();
 }

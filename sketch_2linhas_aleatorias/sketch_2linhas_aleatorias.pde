@@ -10,6 +10,7 @@ void setup() {
 
 
 void draw () {
+  
   background(255);
 
   l1.mover();

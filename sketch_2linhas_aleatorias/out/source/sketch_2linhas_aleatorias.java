@@ -18,7 +18,6 @@ public class sketch_2linhas_aleatorias extends PApplet {
 Mikiu l1, l2;
 
  public void setup() {
-
   noStroke();
   /* size commented out by preprocessor */;
   l1 = new Mikiu(random(width), random(height), random(width), random(height));
@@ -41,7 +40,7 @@ Mikiu l1, l2;
 class Mikiu {
 
   //propriedades
-  float posX, posY, posX2, posY2, size, speed, weight, random,d;
+  float posX, posY, posX2, posY2, speed, weight, random,d;
   float minD = 150;
   int c = color(180, 50, 40);
 
@@ -65,18 +64,18 @@ class Mikiu {
 
    public void mover() {
     
-    int d = PApplet.parseInt(random(4));
+    int d0 = PApplet.parseInt(random(4));
 
-    if (d == 0 && posX < width) posX += speed;
+    if (d0 == 0 && posX < width) posX += speed;
     else if (d == 1 && posX > 0) posX -= speed;
     else if (d == 2 && posY < height) posY += speed;
     else if (d == 3 && posY > 0) posY -= speed;
 
     d = PApplet.parseInt(random(4));
-    if (d == 0 && posX2 < width) posX2 += speed;
-    else if (d == 1 && posX2 > 0) posX2 -= speed;
-    else if (d == 2 && posY2 < height) posY2 += speed;
-    else if (d == 3 && posY2 > 0) posY2 -= speed;
+    if (d0 == 0 && posX2 < width) posX2 += speed;
+    else if (d0 == 1 && posX2 > 0) posX2 -= speed;
+    else if (d0 == 2 && posY2 < height) posY2 += speed;
+    else if (d0 == 3 && posY2 > 0) posY2 -= speed;
   }
 
    public void check() {

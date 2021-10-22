@@ -1,7 +1,7 @@
 class Mikiu {
 
   //propriedades
-  float posX, posY, posX2, posY2, size, speed, weight, random,d;
+  float posX, posY, posX2, posY2, speed, weight, random,d;
   float minD = 150;
   color c = color(180, 50, 40);
 
@@ -25,18 +25,18 @@ class Mikiu {
 
   void mover() {
     
-    int d = int(random(4));
+    int d0 = int(random(4));
 
-    if (d == 0 && posX < width) posX += speed;
+    if (d0 == 0 && posX < width) posX += speed;
     else if (d == 1 && posX > 0) posX -= speed;
     else if (d == 2 && posY < height) posY += speed;
     else if (d == 3 && posY > 0) posY -= speed;
 
     d = int(random(4));
-    if (d == 0 && posX2 < width) posX2 += speed;
-    else if (d == 1 && posX2 > 0) posX2 -= speed;
-    else if (d == 2 && posY2 < height) posY2 += speed;
-    else if (d == 3 && posY2 > 0) posY2 -= speed;
+    if (d0 == 0 && posX2 < width) posX2 += speed;
+    else if (d0 == 1 && posX2 > 0) posX2 -= speed;
+    else if (d0 == 2 && posY2 < height) posY2 += speed;
+    else if (d0 == 3 && posY2 > 0) posY2 -= speed;
   }
 
   void check() {
@@ -61,5 +61,6 @@ class Mikiu {
       l1.posX = l2.posX2;
       l1.posY = l2.posY2;
     }
+    
   }
 }

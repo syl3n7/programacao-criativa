@@ -3,7 +3,7 @@ Mikiu l1, l2;
 void setup() {
 
   noStroke();
-  size(500, 500);
+  size(800, 800);
   l1 = new Mikiu(random(width), random(height), random(width), random(height));
   l2 = new Mikiu(random(width), random(height), random(width), random(height));
 }
@@ -11,7 +11,7 @@ void setup() {
 
 void draw () {
   
-  background(255);
+  background(0);
 
   l1.mover();
   l1.check();

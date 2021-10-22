@@ -1,7 +1,7 @@
 class Mikiu {
 
   //propriedades
-  float posX, posY, posX2, posY2, size, speed, weight, random;
+  float posX, posY, posX2, posY2, size, speed, weight, random,d,minD;
   color c = color(180, 50, 40);
 
   //construtor
@@ -23,7 +23,7 @@ class Mikiu {
   }
 
   void mover() {
-
+    
     int d = int(random(4));
 
     if (d == 0 && posX < width) posX += speed;
@@ -39,18 +39,48 @@ class Mikiu {
   }
 
   void check() {
-    int dc;
-    dc = int(dist(l1.posX, l1.posY, l2.posX2, l2.posY2));
-    
-    if(dist(l1.posX, l1.posY, l2.posX2, l2.posY2)) < 10) {
-    
-    }else{
-      
-    }else if (dist(l1.posX, l1.posY, l2.posX2, l2.posY2) < 10){
+    minD = 100;
+    d = dist(l1.posX, l1.posY, l2.posX, l2.posY);
+    if(d < minD) {
+      l1.posX = l2.posX;
+      l1.posY = l2.posY;
     }
-    else{
+    d = dist(l1.posX2, l1.posY2, l2.posX2, l2.posY2);
+    if(d < minD){
+      l1.posX2 = l2.posX2;
+      l1.posX2 = l2.posX2;
     }
-    
-    
+    d = dist(l1.posX2, l1.posY2, l2.posX, l2.posY);
+    if(d < minD){
+      l1.posX2 = l2.posX;
+      l1.posX2 = l2.posX;
+    }
+    d = dist(l1.posX, l1.posY, l2.posX2, l2.posY2);
+    if(d < minD){
+      l1.posX = l2.posX2;
+      l1.posX = l2.posY2;
+    }
+    //half
+   /* d = dist(l1.posX, l1.posY, l2.posX2, l2.posY2);
+    if(d < minD){
+
+    }
+    d = dist(l1.posX, l1.posY, l2.posX2, l2.posY2);
+    if(d < minD){
+
+    }
+    d = dist(l1.posX, l1.posY, l2.posX2, l2.posY2);
+    if(d < minD){
+
+    }
+    d = dist(l1.posX, l1.posY, l2.posX2, l2.posY2);
+    if(d < minD){
+
+    }
+ */
+
+
+
+
   }
 }

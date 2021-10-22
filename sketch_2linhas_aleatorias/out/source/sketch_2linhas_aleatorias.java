@@ -42,7 +42,7 @@ class Mikiu {
 
   //propriedades
   float posX, posY, posX2, posY2, size, speed, weight, random,d;
-  float minD = 200;
+  float minD = 150;
   int c = color(180, 50, 40);
 
   //construtor
@@ -101,28 +101,6 @@ class Mikiu {
       l1.posX = l2.posX2;
       l1.posY = l2.posY2;
     }
-    //half
-   /* d = dist(l1.posX, l1.posY, l2.posX2, l2.posY2);
-    if(d < minD){
-
-    }
-    d = dist(l1.posX, l1.posY, l2.posX2, l2.posY2);
-    if(d < minD){
-
-    }
-    d = dist(l1.posX, l1.posY, l2.posX2, l2.posY2);
-    if(d < minD){
-
-    }
-    d = dist(l1.posX, l1.posY, l2.posX2, l2.posY2);
-    if(d < minD){
-
-    }
- */
-
-
-
-
   }
 }
 

@@ -1,7 +1,6 @@
 Mikiu l1, l2;
 
 void setup() {
-
   noStroke();
   size(800, 800);
   l1 = new Mikiu(random(width), random(height), random(width), random(height));

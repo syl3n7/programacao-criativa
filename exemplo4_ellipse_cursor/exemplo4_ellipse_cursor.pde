@@ -1,5 +1,5 @@
 color bg, cbola;
-
+int a, b;
 void setup(){
 
   size(500, 500);
@@ -9,15 +9,19 @@ void setup(){
 }
 
 void draw(){
-
   background(bg);
   desenhaBola();
   
 }
 
 void desenhaBola() {
-   
+  a = height/2;
+  b = width/2;
+  ellipse(a, b, mouseX, mouseY);
+}
+
+void mouseReleased(){
+  if(mouseX >= a && mouseY >= b){
   fill(cbola);
-  ellipse(height/2, width/2, mouseX, mouseY);
-  
+  }
 }

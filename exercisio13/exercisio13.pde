@@ -1,27 +1,25 @@
 Quadrado[] q = new Quadrado[4];
 
 void setup(){
- 
   size(500,500);
-  q[0] = new Quadrado(mouseX, mouseY);
-  q[1] = new Quadrado(mouseX, mouseY);
-  q[2] = new Quadrado(mouseX, mouseY);
-  q[3] = new Quadrado(mouseX, mouseY);
-  q[4] = new Quadrado(mouseX, mouseY);
+  for(int i=0;i<4;i++){
+  q[i] = new Quadrado(int(random(40,460)), int(random(40,460)));
+  }
 }
 
 void draw(){
- 
-  
-  
+  for(int i=0;i<4;i++){
+    if (mr == true) {
+      a = mouseX;
+      b = mouseY;
+    } 
+  }
 }
 
 void mouseReleased(){
-  
-  q[temp].posX = mouseX;
-  q[temp].posY = mouseY;
-  q[0].desenha();
-  
+  if(mouseX >= a && mouseY >= b){
+    for(int i=0;i<4;i++){
+    fill(q[i].cd);
+    }
+  }
 }
-
-void mouseMo

@@ -6,7 +6,7 @@
         {
             "label": "processing",
             "type": "shell",
-            "command": "processing.exe",
+            "command": "processing-java",
             "problemMatcher": [],
             "group": {
                 "kind": "build",

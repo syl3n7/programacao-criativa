@@ -9,7 +9,6 @@ void setup () {
   }
 }
 
-
 void draw () {
 background(0);
   for (int i=0; i<quad.length; i++) {

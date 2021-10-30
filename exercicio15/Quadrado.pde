@@ -1,22 +1,18 @@
-class Quadrado{
 
-  float posX, posY, tam;
-  color cor;
-  float transparencia;
+class Quadrado {
+  float posX, posY, tamanho;
+  color cor1;
 
- Quadrado(){
- 
-   posX;
-   posY;
-   cor;
-   transparencia;
-   
- }
+  Quadrado (float x, float y, float t, color c) {
+    posX = x;
+    posY = y;
+    tamanho = t;
+    cor1 = c;
+  }
 
-void desenha(){
- 
-   rect(posX, posY, tam, tam);
-  
-}
-
+  void desenha () {
+    noStroke ();
+    fill (cor1);
+    rect (posX, posY, tamanho, tamanho);
+  }
 }

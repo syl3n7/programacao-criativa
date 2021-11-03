@@ -1,11 +1,11 @@
-Palavra[] p = new Palavra[3];
+Palavra[][] p = new Palavra[3][3];
 
 void setup(){
  
   size(500,500);
-  p[0] = new Palavra("correr");
-  p[1] = new Palavra("com");
-  p[2] = new Palavra("tesouras");
+  p[0][0] = new Palavra("correr");
+  p[1][1] = new Palavra("com");
+  p[2][2] = new Palavra("tesouras");
   
 }
 

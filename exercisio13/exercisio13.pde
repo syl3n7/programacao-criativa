@@ -19,9 +19,9 @@ void draw(){
 
 
 void mouseReleased(){
-  /*if(mouseX >= a && mouseY >= b){
+  if(mouseX >= a && mouseY >= b){
     for(int i=0;i<4;i++){
     fill(q[i].cd);
     }
-  }*/
+  }
 }

@@ -11,7 +11,7 @@ for (int x=0; x<tilesX; x++) {
   for (int y=0; y<tilesY; y++) {
     float posX = tileW*x;
     float posY = tileH*y;
-    if (y%2==0) {
+    if (x%2==0) {
       fill(blue);
     } else {
       fill(purple);

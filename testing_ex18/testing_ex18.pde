@@ -20,5 +20,3 @@ void draw() {
 
 }
 
-
-//incrementar size de forma a fazer grelha + alterar cor de um a um 

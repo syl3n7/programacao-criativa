@@ -1,18 +1,22 @@
 
 class Quadrado {
   float posX, posY, tamanho;
-  color cor1;
+  color black = color(0, 0, 0);
+  color white = color(255, 255, 255);
 
-  Quadrado (float x, float y, float t, color c) {
+  Quadrado (float x, float y, float t) {
     posX = x;
     posY = y;
     tamanho = t;
-    cor1 = c;
   }
 
-  void desenha () {
+  void desenha (int a) {
     noStroke ();
-    fill (cor1);
+    if(a%2==0){
+      fill (white);
+    }else{
+      fill(black);
+    }
     rect (posX, posY, tamanho, tamanho);
   }
 }

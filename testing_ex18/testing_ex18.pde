@@ -1,6 +1,6 @@
 Quadrado[] quad;
-float linhas = 7;
-float colunas = 7;
+float linhas = 8;
+float colunas = 8;
 float x = 0;
 float y = 0;
 int n = int(linhas * colunas); // n = número de vezes que quero que o retângulo seja desenhado
@@ -15,7 +15,9 @@ void setup() {
   for (int i = 0; i < n; i++) {
 
     quad[i] = new Quadrado(x, y, sizeq, f);
-
+    if(f) f = false;
+    else f = true;
+    
 
     println(i + " " + y + " " + x);
     if (x < width - sizeq) {

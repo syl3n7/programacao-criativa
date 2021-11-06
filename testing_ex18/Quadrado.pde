@@ -14,9 +14,9 @@ class Quadrado {
 
   void desenha () {
     //noStroke ();
-    if(flag){
+    if (flag) {
       fill (white);
-    }else{
+    } else {
       fill(black);
     }
     rect (posX, posY, tamanho, tamanho);

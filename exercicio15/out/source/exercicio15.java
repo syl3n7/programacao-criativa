@@ -54,16 +54,18 @@ class Quadrado {
   float posX, posY, tamanho;
   int black = color(0, 0, 0);
   int white = color(255, 255, 255);
+  boolean flag;
 
-  Quadrado (float x, float y, float t) {
+  Quadrado (float x, float y, float t, boolean f) {
     posX = x;
     posY = y;
     tamanho = t;
+    flag = f;
   }
 
-   public void desenha (int a) {
+   public void desenha () {
     //noStroke ();
-    if(a%2==0){
+    if(flag){
       fill (white);
     }else{
       fill(black);

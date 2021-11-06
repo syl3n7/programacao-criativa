@@ -11,11 +11,6 @@ class Cubo {
   }
 
   void desenha () {
-    if (x%2==0) {
-      fill(blue);
-    } else {
-      fill(purple);
-    }
     rect(x, y, tam, tam);
   }
 }

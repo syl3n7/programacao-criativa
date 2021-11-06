@@ -11,7 +11,7 @@ class Quadrado {
   }
 
   void desenha (int a) {
-    noStroke ();
+    //noStroke ();
     if(a%2==0){
       fill (white);
     }else{

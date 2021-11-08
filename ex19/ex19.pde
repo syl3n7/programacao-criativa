@@ -5,23 +5,21 @@ float x = 0;
 float y = 0;
 int n = int(linhas * colunas); // n = número de vezes que quero que o retângulo seja desenhado
 float sizeq; // size
-
+color corR = color(255, 0, 0);
 void setup() {
-  frameRate(10);
-  size(500, 500);
+  noStroke ();
+  frameRate(60);
+  size(800, 800);
   sizeq = width / colunas;
   quad = new Quadrado[n];
 
   boolean f = true;
   
   for (int i = 0; i < n; i++) {
-
-    quad[i] = new Quadrado(x, y, sizeq, f);
+    quad[i] = new Quadrado(x, y, sizeq, f, color(255, 255, 255));
     
     if(f) f = false;
     else f = true;
-
-    println(i + " " + y + " " + x);
     
     if (x < width - sizeq) {
       x += sizeq;
@@ -36,16 +34,13 @@ void setup() {
 }
 
 void draw() {
-  background(200, 0, 0);
+  background(0, 0, 0);
   for (int i = 0; i < quad.length; i++) {
-    
     quad[i].desenha();
-    
-    map(mouseY, quad[i]., i, n, 0);
-   
-    fill(255, 0, 0);
-  }
-  
-  
-    
+    if(mouseX > quad[i].posX && mouseX < quad[i].posX + quad[i].tamanho && mouseY > quad[i].posY && mouseY < quad[i].posY + quad[i].tamanho) {
+      quad[i].cor = color(0, 0, 255);
+    } else {
+      quad[i].cor = color(255, 0, 0);
+    }
+  } 
 }

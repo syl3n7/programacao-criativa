@@ -13,17 +13,16 @@ class Quadrado {
   }
 
   void desenha(){ 
-    if (flag) {
-      fill (corR);
-    } else {
-      fill(corR);
-    }
+    //if (flag) {
+      //fill (corR);
+    //} else {
+      //fill(corR);
+    //}
     rect (posX, posY, tamanho, tamanho);
   }
 
   void mudaCor(){
-    if (mouseX > posX && mouseX < posX + tamanho && mouseY > posY && mouseY < posY + tamanho) {
       corR = color(map(mouseY, 0, height, 0, 255), 255, 255, map(mouseX, 0, width, 0, 255));
-    }
+      fill(corR);
   }
 }

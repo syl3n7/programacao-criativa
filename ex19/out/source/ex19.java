@@ -22,7 +22,7 @@ float x = 0;
 float y = 0;
 int n = PApplet.parseInt(linhas * colunas); // n = número de vezes que quero que o retângulo seja desenhado
 float sizeq; // size
-int corR = color(255, 0, 0);
+int corR = color(255, 0, 0, 0);
  public void setup() {
   noStroke ();
   frameRate(60);
@@ -33,7 +33,7 @@ int corR = color(255, 0, 0);
   boolean f = true;
   
   for (int i = 0; i < n; i++) {
-    quad[i] = new Quadrado(x, y, sizeq, f, color(255, 255, 255));
+    quad[i] = new Quadrado(x, y, sizeq, f);
     
     if(f) f = false;
     else f = true;
@@ -44,7 +44,7 @@ int corR = color(255, 0, 0);
       y += sizeq;
       x = 0;
       if (linhas % 2 == 0 && colunas%2 == 0)
-        if (f)f = false;
+        if (f) f = false;
         else f = true;
     }
   }
@@ -53,12 +53,8 @@ int corR = color(255, 0, 0);
  public void draw() {
   background(0, 0, 0);
   for (int i = 0; i < quad.length; i++) {
-    quad[i].desenha();
-    if(mouseX > quad[i].posX && mouseX < quad[i].posX + quad[i].tamanho && mouseY > quad[i].posY && mouseY < quad[i].posY + quad[i].tamanho) {
-      quad[i].cor = color(0, 0, 255);
-    } else {
-      quad[i].cor = color(255, 0, 0);
-    }
+    quad[i].desenha();   
+    quad[i].mudaCor();    
   } 
 }
 
@@ -67,28 +63,26 @@ class Quadrado {
   int black = color(0, 0, 0);
   int white = color(255, 255, 255);
   boolean flag;
-  int cor;
 
-  Quadrado (float x, float y, float t, boolean f, int c) {
+  Quadrado (float x, float y, float t, boolean f) {
     posX = x;
     posY = y;
     tamanho = t;
     flag = f;
-    corR = c;
   }
 
    public void desenha(){ 
     if (flag) {
       fill (corR);
     } else {
-      fill(black);
+      fill(corR);
     }
     rect (posX, posY, tamanho, tamanho);
   }
 
    public void mudaCor(){
     if (mouseX > posX && mouseX < posX + tamanho && mouseY > posY && mouseY < posY + tamanho) {
-      corR = color(map(mouseX, 0, width, 0, 255), map(mouseY, 0, width, 0, 255), 150);
+      corR = color(map(mouseY, 0, height, 0, 255), 255, 255, map(mouseX, 0, width, 0, 255));
     }
   }
 }

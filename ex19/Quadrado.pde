@@ -1,9 +1,9 @@
-
 class Quadrado {
   float posX, posY, tamanho;
   color black = color(0, 0, 0);
   color white = color(255, 255, 255);
   boolean flag;
+  float dist;
 
   Quadrado (float x, float y, float t, boolean f) {
     posX = x;
@@ -13,16 +13,12 @@ class Quadrado {
   }
 
   void desenha(){ 
-    //if (flag) {
-      //fill (corR);
-    //} else {
-      //fill(corR);
-    //}
     rect (posX, posY, tamanho, tamanho);
   }
 
   void mudaCor(){
-      corR = color(map(mouseY, 0, height, 0, 255), 255, 255, map(mouseX, 0, width, 0, 255));
+      dist = dist(posX, posY, mouseX, mouseY);
+      corR = color (0, 0, 100, int(map(dist, 0, width, 0, 255)));
       fill(corR);
   }
 }

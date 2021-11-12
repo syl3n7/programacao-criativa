@@ -9,12 +9,11 @@ color corR = color(255, 0, 0, 0);
 void setup() {
   noStroke ();
   frameRate(60);
+
   size(800, 800);
   sizeq = width / colunas;
   quad = new Quadrado[n];
-
   boolean f = true;
-  
   for (int i = 0; i < n; i++) {
     quad[i] = new Quadrado(x, y, sizeq, f);
     

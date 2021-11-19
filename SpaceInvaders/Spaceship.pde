@@ -1,15 +1,16 @@
 class Spaceship{
 
     //propriedades
-    Bullet b = new Bullet(s.posX, s.posY, 10);
+    
     float posX, posY, tam;
-
+    Bullets b;
 
     //construtor
     Spaceship(float x, float y, float t){
         posX = x;
         posY = y;
         tam = t;
+        b = new Bullets(posX, posY, 10);
     }
 
     void desenha(){

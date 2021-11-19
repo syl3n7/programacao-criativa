@@ -22,7 +22,7 @@ Invader i;
     /* size commented out by preprocessor */;
     noStroke();
     s = new Spaceship(width/2, height/2, 20);
-    i = new Invader(PApplet.parseFloat(20), PApplet.parseFloat(20), PApplet.parseFloat(20));
+    i = new Invader(PApplet.parseFloat(20), PApplet.parseFloat(20), PApplet.parseFloat(20), false);
 }
 
  public void draw(){
@@ -35,19 +35,28 @@ Invader i;
 
  public void keyPressed(){
 
-    if(key == 'W' || key == 'w'){
-        s.moveUp();
-    }
-    if(key == 'S' || key == 's'){
-        s.moveDown();
-    }
-
-    if(key == 'A' || key == 'a'){
-        s.moveLeft();
+    if(s.posY>s.tam){
+        if(key == 'W' || key == 'w'){
+            s.moveUp();
+        }
     }
 
-    if(key == 'D' || key == 'd'){
-        s.moveRight();
+    if(s.posY<height-s.tam){
+        if(key == 'S' || key == 's'){
+            s.moveDown();
+        }
+    }
+
+    if(s.posX<width-s.tam){
+        if(key == 'A' || key == 'a'){
+            s.moveLeft();
+        }
+    }
+
+    if(s.posX>s.tam){
+        if(key == 'D' || key == 'd'){
+            s.moveRight();
+        }    
     }
 
 }
@@ -58,7 +67,7 @@ float posX, posY, tam;
 
 //construtor
 
-    Bullet(){
+    Bullets(float x, float y, float t){
 
         posX = x;
         posY = y;
@@ -83,13 +92,14 @@ class Invader{
     
     //propriedades
     float posX, posY, tam;
+    boolean hidden = false;
 
     //construtor
-    Invader(float x, float y, float t){
+    Invader(float x, float y, float t, boolean h){
         posX = x;
         posY = y;
         tam = t;
-
+        hidden = h;
     }
 
      public void desenha(){
@@ -103,15 +113,16 @@ class Invader{
 class Spaceship{
 
     //propriedades
-    Bullet b = new Bullet(s.posX, s.posY, 10);
+    
     float posX, posY, tam;
-
+    Bullets b;
 
     //construtor
     Spaceship(float x, float y, float t){
         posX = x;
         posY = y;
         tam = t;
+        b = new Bullets(posX, posY, 10);
     }
 
      public void desenha(){

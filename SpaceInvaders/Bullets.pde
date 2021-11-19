@@ -5,7 +5,7 @@ float posX, posY, tam;
 
 //construtor
 
-    Bullet(){
+    Bullets(float x, float y, float t){
 
         posX = x;
         posY = y;

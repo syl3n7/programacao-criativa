@@ -9,6 +9,6 @@ void setup(){
 }
 
 void draw(){
-    s.drawStar();
-    c.drawCity();
+    s.drawSky();
+    //c.drawCity();
 }

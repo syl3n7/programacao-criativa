@@ -4,10 +4,10 @@ class Star{
     float posX, posY, tam;
 
     //construtor
-    Star(){
-        posX = random(0, width-tam);
-        posY = random(0, height-tam);
-
+    Star(float x, float y, float t){
+        posX = x;
+        posY = y;
+        tam = t;
     }
 
     void drawStar(){

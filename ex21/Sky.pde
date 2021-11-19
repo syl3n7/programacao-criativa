@@ -1,18 +1,29 @@
 class Sky{
 
     //propriedades
-    color cor = color(40, 60, 113);
+    color cor;
+    int nStars;
     Star[] s;
-    //construtor
+    s = new Star[i];
+    
+    
 
+    //construtor
     Sky(){
-        for(int i = 0; i<20; i++){
-            s[i] = new Star();
-        }
+        cor = color(40, 60, 113);
+        nStars = 129;
+        s = new Star[nStars];
+        for(int i = 0; i < stars.length; i++){
+            s[i] = new Star(random(width), random(height), random(5));
+        }      
+
     }
 
-    void drawStar(){
-        background(cor);
+    void drawSky(){
+        
+        fill(cor);
+        rect(0, 0, width, height);
+
         for(int i = 0; i<20; i++){
             s[i].drawStar();
         }

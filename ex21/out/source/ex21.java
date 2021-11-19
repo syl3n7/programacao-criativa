@@ -27,32 +27,45 @@ City c;
 
  public void draw(){
     s.drawSky();
-    //c.drawCity();
+    c.drawCity();
 }
 class Building {
 
     //propriedades
+    float posX, posY, wid, hei;
+    Windows windows;
 
-    Building(){
 
+    //construtor
+    Building(float x, float y, float w, float h){
+        posX = x;
+        posY = y;
+        wid = w;
+        hei = h;´
+        windows = new Windows(PApplet.parseInt(random(1,5)), PApplet.parseInt(random(1, 5)), posX+5, posY+5, wid-10, hei*0.75f);
     }
 
      public void drawBuilding(){
-
-        rect(0,0,100,100);
-
+        fill(255);
+        rect(posX, posY, wid, hei);
     }
 
 }
 class City{
 
     //propriedades
+    float nBuildings;
     Building[] b;
 
     //construtor
-    City(){
-        for(int i = 0; i<width; i++){
-            b = new Building[i];
+    City(int n){
+        nBuildings = n;
+        b = new Building[PApplet.parseInt(nBuildings)];
+        float x = 0;
+        for(int i = 0; i < b.length; i++){
+            float y = random(20, height*0.75f);
+            b[i] = new Building(x, y, width/nBuildings, height-y);
+            x += width/nBuildings;
         }
     }
 
@@ -64,22 +77,50 @@ class City{
         }
     }
 }
+class Rectangle{
 
+float posX, posY, larg, alt;
+int c;
+
+    Rectangle(float x, float y, float l, float a){
+        posX = x;
+        posY = y;
+        larg = l;
+        alt = a;
+        c = color(220, 220, 30);
+    }
+
+     public void desenha(){
+        fill(c);
+        rect(posX, posY, larg, alt);
+    }
+}
 class Sky{
 
     //propriedades
-    int cor = color(40, 60, 113);
+    int cor;
+    int nStars;
     Star[] s;
-    //construtor
+    s = new Star[i];
+    
+    
 
+    //construtor
     Sky(){
-        for(int i = 0; i<20; i++){
-            s = new Star[i];
-        }
+        cor = color(40, 60, 113);
+        nStars = 129;
+        s = new Star[nStars];
+        for(int i = 0; i < stars.length; i++){
+            s[i] = new Star(random(width), random(height), random(5));
+        }      
+
     }
 
      public void drawSky(){
-        background(cor);
+        
+        fill(cor);
+        rect(0, 0, width, height);
+
         for(int i = 0; i<20; i++){
             s[i].drawStar();
         }
@@ -93,16 +134,53 @@ class Star{
     float posX, posY, tam;
 
     //construtor
-    Star(){
-        posX = random(0, width-tam);
-        posY = random(0, height-tam);
-        tam = random(1, 5);
+    Star(float x, float y, float t){
+        posX = x;
+        posY = y;
+        tam = t;
     }
 
      public void drawStar(){
         fill(255);
         ellipse(posX, posY, tam, tam);
     }   
+}
+class Windows{
+
+//propriedades
+int linhas, colunas;
+float posX, posY, larg, alt;
+Rectangle[] janelas;
+
+//construtor
+Windows(int l, int c, float x, float la, float al){
+    linhas = l;
+    colunas = c;
+    posX = x;
+    posY = y;
+    larg = la;
+    alt = al;
+    janelas = new Rectangle[linhas*colunas];
+    float janelaX = posX;
+    float janelaY = posY;
+    float largurajanela = larg/PApplet.parseFloat(colunas);
+    float alturajanela = alt/PApplet.parseFloat(linhas);
+    for(int i = 0; i < linhas*colunas; i++){
+        janelas[i] = new Rectangle(janelaX, janelaY, largurajanela, alturajanela);
+        if(janelaX<posX+larg-largurajanela){
+            janelaX += largurajanela;
+        else {
+                janelaX = posX;
+                janelaY += alturajanela;
+        }
+    }
+}
+
+     public void desenha(){
+        for(int i = 0; i < janelas.length; i++){
+            janelas[i].desenha();
+        }
+    }
 }
 
 

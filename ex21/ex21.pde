@@ -10,5 +10,5 @@ void setup(){
 
 void draw(){
     s.drawSky();
-    //c.drawCity();
+    c.drawCity();
 }

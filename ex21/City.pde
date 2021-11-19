@@ -7,7 +7,7 @@ class City{
     //construtor
     City(int n){
         nBuildings = n;
-        b = new Building[nBuildings];
+        b = new Building[int(nBuildings)];
         float x = 0;
         for(int i = 0; i < b.length; i++){
             float y = random(20, height*0.75);

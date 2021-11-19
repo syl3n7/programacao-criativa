@@ -10,10 +10,11 @@ class City{
         }
     }
 
-    void drawBuilding(){
+void drawCity(){
+
+    //desenhar os edificios
         for(int i = 0; i<b.length; i++){
-            b[i].draw();
+            b[i].drawBuilding();
         }
     }
-
 }

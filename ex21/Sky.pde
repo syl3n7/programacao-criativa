@@ -1,6 +1,7 @@
 class Sky{
 
     //propriedades
+    color cor = color(40, 60, 113);
     Star[] s;
     //construtor
 
@@ -11,9 +12,9 @@ class Sky{
     }
 
     void drawStar(){
-
+        background(cor);
         for(int i = 0; i<20; i++){
-            s[i].draw();
+            s[i].drawStar();
         }
 
     }

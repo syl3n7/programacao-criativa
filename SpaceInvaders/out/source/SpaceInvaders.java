@@ -15,18 +15,147 @@ import java.io.IOException;
 
 public class SpaceInvaders extends PApplet {
 
+Spaceship s;
+Invader i;
+
  public void setup(){
-
-
-
+    /* size commented out by preprocessor */;
+    noStroke();
+    s = new Spaceship(width/2, height/2, 20);
+    i = new Invader(PApplet.parseFloat(20), PApplet.parseFloat(20), PApplet.parseFloat(20));
 }
 
  public void draw(){
 
-    
+    background(0);
+    s.desenha();
+    i.desenha();
 
 }
 
+ public void keyPressed(){
+
+    if(key == 'W' || key == 'w'){
+        s.moveUp();
+    }
+    if(key == 'S' || key == 's'){
+        s.moveDown();
+    }
+
+    if(key == 'A' || key == 'a'){
+        s.moveLeft();
+    }
+
+    if(key == 'D' || key == 'd'){
+        s.moveRight();
+    }
+
+}
+class Bullets{
+
+//propriedades 
+float posX, posY, tam;
+
+//construtor
+
+    Bullet(){
+
+        posX = x;
+        posY = y;
+        tam = 10;
+
+    }
+
+     public void desenha(){
+        fill(0);
+        ellipse(posX, posY, tam, tam);
+    }
+
+     public void move(){
+
+        posY -= 10;
+
+    }
+
+
+}
+class Invader{
+    
+    //propriedades
+    float posX, posY, tam;
+
+    //construtor
+    Invader(float x, float y, float t){
+        posX = x;
+        posY = y;
+        tam = t;
+
+    }
+
+     public void desenha(){
+
+        fill(0, 255, 0);
+        rect(posX, posY, tam, tam);
+
+    }
+
+}
+class Spaceship{
+
+    //propriedades
+    Bullet b = new Bullet(s.posX, s.posY, 10);
+    float posX, posY, tam;
+
+
+    //construtor
+    Spaceship(float x, float y, float t){
+        posX = x;
+        posY = y;
+        tam = t;
+    }
+
+     public void desenha(){
+
+        fill(255, 0, 0);
+        rect(posX, posY, tam, tam);
+
+    }
+
+     public void moveLeft(){
+
+        s.posX = s.posX - 10;           
+
+    }
+
+     public void moveRight(){
+
+       s.posX = s.posX + 10;
+        
+    }
+
+     public void moveUp(){
+
+        s.posY = s.posY - 10;
+        
+    }
+
+     public void moveDown(){
+
+        s.posY = s.posY + 10;
+        
+    }
+
+     public void shoot(){
+
+        b.desenha();
+        b.move();
+
+    }
+
+}
+
+
+  public void settings() { size(800, 800); }
 
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "SpaceInvaders" };

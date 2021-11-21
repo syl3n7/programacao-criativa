@@ -13,14 +13,14 @@ float posX, posY, tam;
 
     }
 
-    void desenha(){
-        fill(0);
-        ellipse(posX, posY, tam, tam);
+    void desenha(float x, float y){
+        fill(25, 50, 200);
+        ellipse(x, y, tam, tam);
     }
 
     void move(){
 
-        posY -= 10;
+        posY += 5;
 
     }
 

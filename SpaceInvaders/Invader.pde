@@ -19,4 +19,10 @@ class Invader{
 
     }
 
+    void targetHit(){
+
+        hidden = true;
+        
+    }
+
 }

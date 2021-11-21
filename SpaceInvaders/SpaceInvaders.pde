@@ -4,6 +4,9 @@ Invader i;
 void setup(){
     size (800, 800);
     noStroke();
+    frameRate(25);
+    ellipseMode(CENTER);
+    rectMode(CENTER);
     s = new Spaceship(width/2, height/2, 20);
     i = new Invader(float(20), float(20), float(20), false);
 }
@@ -13,10 +16,14 @@ void draw(){
     background(0);
     s.desenha();
     i.desenha();
-
+    
 }
 
 void keyPressed(){
+
+    if(key == ' '){
+        s.shoot();
+    }
 
     if(s.posY>s.tam){
         if(key == 'W' || key == 'w'){

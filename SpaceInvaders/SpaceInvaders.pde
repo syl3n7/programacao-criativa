@@ -1,5 +1,6 @@
 Spaceship s;
 Invader i;
+Bullets b;
 
 void setup(){
     size (800, 800);
@@ -25,25 +26,25 @@ void keyPressed(){
         s.shoot();
     }
 
-    if(s.posY>s.tam){
+    if(s.posY>s.tam/2){
         if(key == 'W' || key == 'w'){
             s.moveUp();
         }
     }
 
-    if(s.posY<height-s.tam){
+    if(s.posY<height-s.tam/2){
         if(key == 'S' || key == 's'){
             s.moveDown();
         }
     }
 
-    if(s.posX<width-s.tam){
+    if(s.posX>s.tam/2){
         if(key == 'A' || key == 'a'){
             s.moveLeft();
         }
     }
 
-    if(s.posX>s.tam){
+    if(s.posX<width-s.tam/2){
         if(key == 'D' || key == 'd'){
             s.moveRight();
         }    

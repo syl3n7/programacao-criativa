@@ -11,10 +11,11 @@ class Spaceship{
         posX = x;
         posY = y;
         tam = t;
-        b = new Bullets(posX, posY, 10);
+        b = new Bullets(posX, posY, 5, 10);
     }
 
     void spawn(){
+
         println(" score :"+score);
         fill(255, 0, 0);
         rect(posX, posY, tam, tam);
@@ -52,13 +53,6 @@ class Spaceship{
             b.posY += 10;
         }
         
-        for(int i = 0; i<int(height-b.tam); i++){
-            b.move();
-        }
-
-        
-        
-
     }
 
     void score(){

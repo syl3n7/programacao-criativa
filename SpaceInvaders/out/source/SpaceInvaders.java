@@ -17,6 +17,7 @@ public class SpaceInvaders extends PApplet {
 
 Spaceship s;
 Invader i;
+Bullets b;
 
  public void setup(){
     /* size commented out by preprocessor */;
@@ -42,25 +43,25 @@ Invader i;
         s.shoot();
     }
 
-    if(s.posY>s.tam){
+    if(s.posY>s.tam/2){
         if(key == 'W' || key == 'w'){
             s.moveUp();
         }
     }
 
-    if(s.posY<height-s.tam){
+    if(s.posY<height-s.tam/2){
         if(key == 'S' || key == 's'){
             s.moveDown();
         }
     }
 
-    if(s.posX<width-s.tam){
+    if(s.posX>s.tam/2){
         if(key == 'A' || key == 'a'){
             s.moveLeft();
         }
     }
 
-    if(s.posX>s.tam){
+    if(s.posX<width-s.tam/2){
         if(key == 'D' || key == 'd'){
             s.moveRight();
         }    
@@ -70,28 +71,30 @@ Invader i;
 class Bullets{
 
 //propriedades 
-float posX, posY, tam;
+float posX, posY, tam1, tam2;
 
 //construtor
 
-    Bullets(float x, float y, float t){
+    Bullets(float x, float y, float t1, float t2){
 
         posX = x;
         posY = y;
-        tam = 10;
+        tam1 = t1;
+        tam2 = t2;
 
     }
 
      public void desenha(float x, float y){
         fill(25, 50, 200);
-        ellipse(x, y, tam, tam);
+        rect(x, y, tam1, tam2);
+        if(posY <= height){
+            posY -= 10;
+        }
     }
 
      public void move(){
 
-        for(int i = 0; posY <= height; i+=5){
-            posY += i;
-        }
+      
         
     }
 
@@ -138,10 +141,11 @@ class Spaceship{
         posX = x;
         posY = y;
         tam = t;
-        b = new Bullets(posX, posY, 10);
+        b = new Bullets(posX, posY, 5, 10);
     }
 
      public void spawn(){
+
         println(" score :"+score);
         fill(255, 0, 0);
         rect(posX, posY, tam, tam);
@@ -179,13 +183,6 @@ class Spaceship{
             b.posY += 10;
         }
         
-        for(int i = 0; i<PApplet.parseInt(height-b.tam); i++){
-            b.move();
-        }
-
-        
-        
-
     }
 
      public void score(){

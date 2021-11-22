@@ -1,28 +1,30 @@
 class Bullets{
 
 //propriedades 
-float posX, posY, tam;
+float posX, posY, tam1, tam2;
 
 //construtor
 
-    Bullets(float x, float y, float t){
+    Bullets(float x, float y, float t1, float t2){
 
         posX = x;
         posY = y;
-        tam = 10;
+        tam1 = t1;
+        tam2 = t2;
 
     }
 
     void desenha(float x, float y){
         fill(25, 50, 200);
-        rect(x, y, tam, tam);
+        rect(x, y, tam1, tam2);
+        if(posY <= height){
+            posY -= 10;
+        }
     }
 
     void move(){
 
-        for(int i = 0; posY <= height; i+=5){
-            posY += i;
-        }
+      
         
     }
 

@@ -48,7 +48,7 @@ class Spaceship{
 
     void shoot(){
 
-        b.desenha(posX, posY);
+        b.spawn(posX, posY);
         if(b.posX < height){
             b.posY += 10;
         }

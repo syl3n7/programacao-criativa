@@ -84,12 +84,13 @@ float posX, posY, tam1, tam2;
 
     }
 
-     public void desenha(float x, float y){
+     public void spawn(float x, float y){
         fill(25, 50, 200);
-        rect(x, y, tam1, tam2);
-        if(posY <= height){
-            posY -= 10;
+        if(y <= height){
+            y -= 10;
         }
+        rect(x, y, tam1, tam2);
+        
     }
 
      public void move(){
@@ -178,7 +179,7 @@ class Spaceship{
 
      public void shoot(){
 
-        b.desenha(posX, posY);
+        b.spawn(posX, posY);
         if(b.posX < height){
             b.posY += 10;
         }

@@ -14,7 +14,7 @@ class Spaceship{
         b = new Bullets(posX, posY, 10);
     }
 
-    void desenha(){
+    void spawn(){
         println(" score :"+score);
         fill(255, 0, 0);
         rect(posX, posY, tam, tam);

@@ -12,7 +12,7 @@ class Invader{
         hidden = h;
     }
 
-    void desenha(){
+    void spawn(){
 
         fill(0, 255, 0);
         rect(posX, posY, tam, tam);

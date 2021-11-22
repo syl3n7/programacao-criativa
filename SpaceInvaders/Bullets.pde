@@ -15,13 +15,15 @@ float posX, posY, tam;
 
     void desenha(float x, float y){
         fill(25, 50, 200);
-        ellipse(x, y, tam, tam);
+        rect(x, y, tam, tam);
     }
 
     void move(){
 
-        posY += 5;
-
+        for(int i = 0; posY <= height; i+=5){
+            posY += i;
+        }
+        
     }
 
 

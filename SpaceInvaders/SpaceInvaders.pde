@@ -14,8 +14,8 @@ void setup(){
 void draw(){
 
     background(0);
-    s.desenha();
-    i.desenha();
+    s.spawn();
+    i.spawn();
     
 }
 

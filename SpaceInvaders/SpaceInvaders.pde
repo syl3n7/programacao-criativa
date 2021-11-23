@@ -9,6 +9,7 @@ void setup(){
     ellipseMode(CENTER);
     rectMode(CENTER);
     s = new Spaceship(width/2, height/2, 20);
+    //for(int i = 0; i<)
     i = new Invader(float(20), float(20), float(20), false);
 }
 

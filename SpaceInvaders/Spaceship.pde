@@ -50,8 +50,9 @@ class Spaceship{
 
         b.spawn(posX, posY);
         if(b.posX < height){
-            b.posY += 10;
+            b.posY -= 10;
         }
+        score();
         
     }
 

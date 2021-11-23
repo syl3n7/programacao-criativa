@@ -15,17 +15,18 @@ float posX, posY, tam1, tam2;
     }
 
     void spawn(float x, float y){
-        fill(25, 50, 200);
+        
         if(y <= height){
             y -= 10;
         }
+        fill(25, 50, 200);
         rect(x, y, tam1, tam2);
         
     }
 
     void move(){
 
-      
+
         
     }
 

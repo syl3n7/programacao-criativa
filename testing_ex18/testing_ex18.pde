@@ -17,7 +17,6 @@ void setup() {
     quad[i] = new Quadrado(x, y, sizeq, f);
     if(f) f = false;
     else f = true;
-    
 
     println(i + " " + y + " " + x);
     if (x < width - sizeq) {

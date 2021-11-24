@@ -3,7 +3,7 @@ class Spaceship{
     //propriedades
     
     float posX, posY, tam;
-    Bullets b;
+    Bullets b[] = new Bullets[9001];
     int score = 0;
 
     //construtor
@@ -11,14 +11,18 @@ class Spaceship{
         posX = x;
         posY = y;
         tam = t;
-        b = new Bullets(posX, posY, 5, 10);
+
+        for (int i = 0; i < 9001; i++){
+            b[i]= new Bullets(posX, posY, 10, 10);
+        }
+        
     }
 
     void spawn(){
 
         println(" score :"+score);
         fill(255, 0, 0);
-        rect(posX, posY, tam, tam);
+        triangle(posX, posY, posX+tam, posY, posX+tam/2, posY-tam);
 
     }
 
@@ -48,20 +52,20 @@ class Spaceship{
 
     void shoot(){
 
-        b.spawn(posX, posY);
-        if(b.posX < height){
-            b.posY -= 10;
+        for (int i = 0; i < b.length; i++){
+
+            b[i].move();
+            score();
         }
-        score();
         
     }
 
     void score(){
 
-        if (dist(b.posX, b.posY, i.posX, i.posY) < 15){
-            i.targetHit();
-            s.score++;
-        }
+        //f (dist(b.posX, b.posY, i.posX, i.posY) < 15){
+        //    i.targetHit();
+        //    s.score++;
+        //}
     }
 
 }

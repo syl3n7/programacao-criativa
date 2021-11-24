@@ -16,9 +16,6 @@ float posX, posY, tam1, tam2;
 
     void spawn(float x, float y){
         
-        if(y <= height){
-            y -= 10;
-        }
         fill(25, 50, 200);
         rect(x, y, tam1, tam2);
         
@@ -26,9 +23,13 @@ float posX, posY, tam1, tam2;
 
     void move(){
 
+        for (int i = 0; i < 9001; i++){
 
-        
+            spawn(s.posX, s.posY);
+                if(posX < height){
+                posY -= 10;
+            }
+            s.score();
+        }            
     }
-
-
 }

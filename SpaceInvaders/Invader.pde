@@ -21,7 +21,7 @@ class Invader{
 
     void targetHit(){
 
-        hidden = true;
+        //hidden = true;
         
     }
 

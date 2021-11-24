@@ -1,24 +1,28 @@
 Spaceship s;
-Invader i;
-Bullets b;
+Invader[] i;
+
 
 void setup(){
     size (800, 800);
     noStroke();
-    frameRate(25);
+    frameRate(30);
     ellipseMode(CENTER);
     rectMode(CENTER);
     s = new Spaceship(width/2, height/2, 20);
-    //for(int i = 0; i<)
-    i = new Invader(float(20), float(20), float(20), false);
+    Invader i[] = new Invader[10];
+    for(int a = 0; a < i.length; a++){
+        i[a] = new Invader(float(20), float(20), float(20), false);
+    }
+    for(int a = 0; a < i.length; a++){
+        i[a].spawn();
+    }
 }
 
 void draw(){
 
     background(0);
     s.spawn();
-    i.spawn();
-    
+       
 }
 
 void keyPressed(){

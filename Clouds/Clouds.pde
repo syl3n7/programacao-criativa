@@ -12,6 +12,9 @@ void setup() {
 void draw(){
     background(0, 10, 205);
     c1.draw();
+    c1.move();
     c2.draw();
+    c2.move();
     c3.draw();
+    c3.move();
 }

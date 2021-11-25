@@ -29,8 +29,11 @@ CloudsGen c3;
  public void draw(){
     background(0, 10, 205);
     c1.draw();
+    c1.move();
     c2.draw();
+    c2.move();
     c3.draw();
+    c3.move();
 }
 class CloudsGen{
 
@@ -39,14 +42,23 @@ class CloudsGen{
 
     CloudsGen(String nome, float x, float y){
         img = loadImage(nome);
-        posX = posX;
-        posY = posY;
+        posX = x;
+        posY = y;
     }
 
      public void draw(){
+        image(img, posX, posY);  
+    }
 
-        image(img, posX, posY);        
-
+     public void move(){
+        if(posX > -img.width){
+            posX -= random(5, 75);
+        }
+        else{
+            posX = width;
+            posY = random(height);
+        }
+        
     }
 
 }

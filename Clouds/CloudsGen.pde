@@ -15,7 +15,7 @@ class CloudsGen{
 
     void move(){
         if(posX > -img.width){
-            posX -= random(5, 75);
+            posX -= random(2, 25);
         }
         else{
             posX = width;

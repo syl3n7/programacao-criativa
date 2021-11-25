@@ -19,6 +19,16 @@ class Invader{
 
     }
 
+    void move(){
+        if(posX<width){
+            posX += tam;
+        }
+        else{
+            posX=0;
+        }
+        
+    }
+
     void targetHit(){
 
         //hidden = true;

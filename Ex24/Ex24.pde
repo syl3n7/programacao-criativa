@@ -4,20 +4,18 @@ PImage img;
         fullScreen(P2D);
         img = loadImage("moon.jpg");
         img.resize(width, height);
-        loadPixels();
+        
     }
 
     void draw() {
         
-        for (int i = 0; i < img.width; i++) {
-            for (int j = 0; j < img.height; j++) {
-                int index = i + j * img.width;
+        img.loadPixels();
 
-                                
-                pixels[index] = color(red(img.pixels[index]), green(img.pixels[index]), blue(img.pixels[index]));
-            }
+        for (int y = 0; y<img.height; y++) {
+            int index = mouseX+mouseY*img.width;
+            img.pixels[mouseX+y*img.width] = color(img.pixels[index]);
         }
-        updatePixels();
-        
+
+        img.updatePixels();
+        image(img, 0, 0);
     }
-}

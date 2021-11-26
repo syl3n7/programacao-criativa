@@ -16,15 +16,12 @@ import java.io.IOException;
 public class Ex23 extends PApplet {
 
 PImage img;
+
  public void setup() {
     /* size commented out by preprocessor */;
     img = loadImage("moon.jpg");
     img.resize(width, height);
-    loadPixels();
-}
-
- public void draw() {
-
+    img.loadPixels();
     for (int i = 0; i < width; i++) {
         for (int j = 0; j < height; j++) {
             int index = i + j * width;
@@ -32,11 +29,17 @@ PImage img;
             float g = green(img.pixels[index]);
             float b = blue(img.pixels[index]);
             if(r < 128 && b < 128 && g < 128){
-                pixels[index] = color(r, g, b);
+                img.pixels[index] = color(255);
             }
         }
     }
-    updatePixels();
+    img.updatePixels();
+}
+
+ public void draw() {
+
+    image(img, 0, 0);
+
 }
 
 

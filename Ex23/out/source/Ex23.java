@@ -31,7 +31,7 @@ PImage img;
             float r = red(img.pixels[index]);
             float g = green(img.pixels[index]);
             float b = blue(img.pixels[index]);
-            if(r > 128 && b > 128 && g > 128){
+            if(r < 128 && b < 128 && g < 128){
                 pixels[index] = color(r, g, b);
             }
         }

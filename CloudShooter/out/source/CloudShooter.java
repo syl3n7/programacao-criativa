@@ -13,11 +13,12 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.IOException;
 
-public class Clouds extends PApplet {
+public class CloudShooter extends PApplet {
 
 CloudsGen c1;
 CloudsGen c2;
 CloudsGen c3;
+Player p1;
 
  public void setup() {
     frameRate(60);
@@ -26,6 +27,8 @@ CloudsGen c3;
     c1 = new CloudsGen("cloud1.png", 100, random(height));
     c2 = new CloudsGen("cloud2.png", 200, random(height));
     c3 = new CloudsGen("cloud3.png", 300, random(height));
+    p1 = new Player("f16.png", width/2, height/2, 20);
+
 }
 
  public void draw(){
@@ -36,6 +39,22 @@ CloudsGen c3;
     c1.move();
     c2.move();
     c3.move();
+    p1.draw();
+}
+
+ public void KeyPressed(){
+
+    // if(key == ' '){
+    //     p1.shoot();
+    // }
+
+    if(key == 's'|| key == 'S'){
+        p1.movedown();
+    }
+    
+    if(key == 'w'|| key == 'W'){
+        p1.moveup();
+    }
 }
 class CloudsGen{
 
@@ -64,12 +83,42 @@ class CloudsGen{
     }
 
 }
+class Player{
+
+    //Properties
+    PImage img;
+    float posX, posY, tam;;
+
+    //Constructor
+    Player(String n, float x, float y, float t){
+        img = loadImage(n);
+        x = x;
+        y = y;
+        t = tam;
+    }
+
+     public void draw(){
+        image(img, posX, posY);
+    }
+
+     public void movedown(){ 
+        if (posY < height){
+            posY += tam;
+        }
+    }
+
+     public void moveup(){
+        if (posY > 0){
+            posY -= tam;
+        }
+    }
+}
 
 
   public void settings() { fullScreen(P2D); }
 
   static public void main(String[] passedArgs) {
-    String[] appletArgs = new String[] { "Clouds" };
+    String[] appletArgs = new String[] { "CloudShooter" };
     if (passedArgs != null) {
       PApplet.main(concat(appletArgs, passedArgs));
     } else {

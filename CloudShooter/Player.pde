@@ -17,13 +17,13 @@ class Player{
     }
 
     void movedown(){ 
-        if (posY < height){
+        if (posY < height-img.height){
             posY += tam;
         }
     }
 
     void moveup(){
-        if (posY > 0){
+        if (posY > 0+img.height){
             posY -= tam;
         }
     }

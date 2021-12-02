@@ -5,13 +5,12 @@ Player p1;
 
 void setup() {
     frameRate(60);
-    fullScreen(P2D);
+    size(600,600,P2D);
     
     c1 = new CloudsGen("cloud1.png", 100, random(height));
     c2 = new CloudsGen("cloud2.png", 200, random(height));
     c3 = new CloudsGen("cloud3.png", 300, random(height));
     p1 = new Player("f16.png", width/2, height/2, 20);
-
 }
 
 void draw(){
@@ -23,6 +22,7 @@ void draw(){
     c2.move();
     c3.move();
     p1.draw();
+    println(p1.posY);
 }
 
 void KeyPressed(){
@@ -36,6 +36,6 @@ void KeyPressed(){
     }
     
     if(key == 'w'|| key == 'W'){
-        p1.moveup();
+        p1.moveup(); 
     }
 }

@@ -47,23 +47,21 @@ class Quadrado{
 
         posX = 0;
         posY = height/2;
-        tam = 40;
+        tam = 20;
 
     }
 
      public void drawme(float y){
 
-    posY = y;
-    fill(0);
-    rect(posX, posY, tam, tam);
-            if (posX < width - tam){
-                posX += tam;
-            }
-            if (posX >=  width){
-                posX = 0;
-            }
-
+        posY = y;
+        fill(0);
+        rect(posX, posY, tam, tam);
+        posX += tam;
+        if (posX >=  width){
+        posX = 0;
         }
+
+    }
 }
 
 

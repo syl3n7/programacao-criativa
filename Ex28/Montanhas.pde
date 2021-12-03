@@ -3,7 +3,7 @@ class Montanhas{
     //propriedades
     float n;
     Rectangle[] rects;
-    float tempo, temporal;
+    float tempo;
 
     //construtor
     Montanhas(float nMontanhas){
@@ -20,11 +20,11 @@ class Montanhas{
         for(int i = 0; i < rects.length; i++){
             rects[i] = new Rectangle(x, y, alt, larg);
             x +=  larg;
-            alt = random(height);
+            alt = noise(tempo);
+            alt = map(tempo, )
             y = height-alt;
         }
-        tempo += 0.01;
-
+        tempo += 0.05;
     }
     
     void drawme(){

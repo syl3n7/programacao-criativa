@@ -51,19 +51,19 @@ class Quadrado{
 
     }
 
-     public void drawme(float x){
+     public void drawme(float y){
 
-    posX = x;
+    posY = y;
     fill(0);
-    rect(posX, posY, t, t);
+    rect(posX, posY, tam, tam);
             if (posX < width - tam){
                 posX += tam;
             }
+            if (posX >=  width){
+                posX = 0;
+            }
 
         }
-
-    }
-
 }
 
 

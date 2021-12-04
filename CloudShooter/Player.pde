@@ -7,24 +7,37 @@ class Player{
     //Constructor
     Player(String n, float x, float y, float t){
         img = loadImage(n);
-        x = x;
-        y = y;
-        t = tam;
+        posX = x;
+        posY = y;
+        tam = t;
     }
 
-    void draw(){
+    void drawme(){
         image(img, posX, posY);
     }
 
     void movedown(){ 
-        if (posY < height-img.height){
+        if (posY < height){
             posY += tam;
         }
     }
 
     void moveup(){
-        if (posY > 0+img.height){
+        if (posY > 0){
             posY -= tam;
         }
     }
+
+    void moveleft(){
+        if (posX > 0){
+            posX -= tam;
+        }
+    }
+
+    void moveright(){
+        if (posX < width){
+            posX += tam;
+        }
+    }
+
 }

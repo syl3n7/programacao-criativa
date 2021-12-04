@@ -9,7 +9,7 @@ class CloudsGen{
         posY = y;
     }
 
-    void draw(){
+    void drawme(){
         image(img, posX, posY);  
     }
 

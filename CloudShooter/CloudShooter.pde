@@ -2,6 +2,8 @@ CloudsGen c1;
 CloudsGen c2;
 CloudsGen c3;
 Player p1;
+Bullets b1;
+//Enemy e1;
 
 void setup() {
 
@@ -17,6 +19,8 @@ void setup() {
     c3 = new CloudsGen("cloud3.png", 300, random(height));
     //player 1
     p1 = new Player("f16.png", 0, 0, 20);
+    //bullet 1
+    b1 = new Bullets("bullet.png", 650, 350/2, 20);
     
 }
 

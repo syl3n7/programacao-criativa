@@ -5,19 +5,18 @@ class Bullets{
 float posX, posY, tam;
 
     //construtor
-    Bullets(String name){
-    blt = loadImage(n);
-        posX = 0;
-        posX = 0;
-        tam = 10;
-
+    Bullets(String name, float x, float y, float t){
+        bullet = loadImage(name);
+        posX = x;
+        posY = y;
+        tam = t;
     }
 
 //desenhar as balas no ecra
     void drawme() {
             
             fill(255,0,0);
-            ellipse(posX,posY,tam,tam);
+            image(bullet, 650, 350/2);
     
     }
 //mover a ellipse

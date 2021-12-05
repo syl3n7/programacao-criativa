@@ -19,6 +19,8 @@ CloudsGen c1;
 CloudsGen c2;
 CloudsGen c3;
 Player p1;
+Bullets b1;
+//Enemy e1;
 
  public void setup() {
 
@@ -34,6 +36,8 @@ Player p1;
     c3 = new CloudsGen("cloud3.png", 300, random(height));
     //player 1
     p1 = new Player("f16.png", 0, 0, 20);
+    //bullet 1
+    b1 = new Bullets("bullet.png", 650, 350/2, 20);
     
 }
 
@@ -100,22 +104,22 @@ Player p1;
 class Bullets{
 
     //propriedades
+    PImage bullet;
 float posX, posY, tam;
 
     //construtor
-    Bullets(){
-
-        posX = 0;
-        posX = 0;
-        tam = 10;
-
+    Bullets(String name, float x, float y, float t){
+        bullet = loadImage(name);
+        posX = x;
+        posY = y;
+        tam = t;
     }
 
 //desenhar as balas no ecra
      public void drawme() {
             
             fill(255,0,0);
-            ellipse(posX,posY,tam,tam);
+            image(bullet, 650, 350/2);
     
     }
 //mover a ellipse
@@ -148,6 +152,24 @@ class CloudsGen{
             posY = random(height);
         }
         
+    }
+
+}
+class Enemy{
+
+    //propriedades
+
+    //constructor
+    Enemy(){
+
+
+
+    }
+
+     public void drawme(){
+
+
+
     }
 
 }

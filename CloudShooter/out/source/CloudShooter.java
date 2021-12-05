@@ -62,6 +62,30 @@ Player p1;
     if(key == 'd'|| key == 'D'){
         p1.moveright();
     }
+
+    void score(){
+    
+    }
+
+    void highscore(){
+
+    }
+
+    //no more lifelines calls this.
+    void gameOver(){
+
+    }
+
+    //going through all the lifelines and leves without dying, calls this.    void gameWon(){
+
+    }
+
+    //if the player loses the level this gets called and he loses a lifeline
+     public void gameLost(){
+
+    }
+
+
 }
 class CloudsGen{
 

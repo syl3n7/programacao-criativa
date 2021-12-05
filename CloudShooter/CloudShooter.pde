@@ -20,7 +20,7 @@ void setup() {
     //player 1
     p1 = new Player("f16.png", 0, 0, 20);
     //bullet 1
-    b1 = new Bullets("bullet.png", 650, 350/2, 20);
+    b1 = new Bullets("bullet.png", -650, -650/2, 20);
     
 }
 

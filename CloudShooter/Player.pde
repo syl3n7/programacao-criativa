@@ -1,6 +1,7 @@
 class Player{
 
     //Properties
+    float altura, largura;
     PImage img;
     PImage img2;
     PImage img3;
@@ -10,7 +11,6 @@ class Player{
     //Constructor
     Player(String n, float x, float y, float t){
         img = loadImage(n);
-    
         posX = x;
         posY = y;
         tam = t;
@@ -30,8 +30,7 @@ void damage(){
 }
 
 void shoot (){
-    fill(255,0,0);
-    ellipse(posX, posY, tam, tam);
+    b1.moveme();
 }
 
 //validar posicao e incremento da mesma caso tecla seja pressionada

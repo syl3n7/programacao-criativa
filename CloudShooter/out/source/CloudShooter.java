@@ -41,6 +41,8 @@ Bullets b1;
     
 }
 
+//quero adicionar um background que vai mudando a HUE de modo a ser dia/noite
+
 //desenhar os elementos do programa no ecra
  public void draw(){
     background(0, 80, 255);
@@ -51,10 +53,12 @@ Bullets b1;
     c2.move();
     c3.move();
     p1.drawme();
+    b1.drawme();
 }
 
+//tenho que validar se a bala atinge o objeto dentro do draw
  public void keyPressed(){
-
+//falta por a bala a mover e redimensionar a imagem corretamente.
     if(key == ' '){
         p1.shoot();
     }
@@ -105,7 +109,7 @@ class Bullets{
 
     //propriedades
     PImage bullet;
-float posX, posY, tam;
+    float posX, posY, tam;
 
     //construtor
     Bullets(String name, float x, float y, float t){
@@ -115,18 +119,22 @@ float posX, posY, tam;
         tam = t;
     }
 
+//metodos
+
 //desenhar as balas no ecra
      public void drawme() {
-            
-            fill(255,0,0);
-            image(bullet, 650, 350/2);
-    
+
+        bullet.resize(100,25);
+        //desenhar fora do canvas
+        image(bullet, -650, -650);
+        p1.altura = p1.img.height/2;
+        p1.largura = p1.img.width/2;
     }
 //mover a ellipse
      public void moveme(){
-        posX = posX + 5;
+        //atualizar posicao para parecer spawn a partir da nave
+        image(bullet, p1.largura, p1.altura); //substituir altura e largura por variaveis
     }
-
 }
 class CloudsGen{
 
@@ -162,7 +170,7 @@ class Enemy{
     //constructor
     Enemy(){
 
-
+        
 
     }
 
@@ -176,6 +184,7 @@ class Enemy{
 class Player{
 
     //Properties
+    float altura, largura;
     PImage img;
     PImage img2;
     PImage img3;
@@ -185,10 +194,10 @@ class Player{
     //Constructor
     Player(String n, float x, float y, float t){
         img = loadImage(n);
-    
         posX = x;
         posY = y;
         tam = t;
+
     }
     
 //spawn da imagem mediante parametros indicados
@@ -205,8 +214,8 @@ class Player{
 }
 
  public void shoot (){
-    fill(255,0,0);
-    ellipse(posX, posY, tam, tam);
+    b1.moveme();
+    
 }
 
 //validar posicao e incremento da mesma caso tecla seja pressionada

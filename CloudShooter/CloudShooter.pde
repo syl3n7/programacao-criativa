@@ -24,6 +24,8 @@ void setup() {
     
 }
 
+//quero adicionar um background que vai mudando a HUE de modo a ser dia/noite
+
 //desenhar os elementos do programa no ecra
 void draw(){
     background(0, 80, 255);
@@ -34,10 +36,12 @@ void draw(){
     c2.move();
     c3.move();
     p1.drawme();
+    b1.drawme();
 }
 
+//tenho que validar se a bala atinge o objeto dentro do draw
 void keyPressed(){
-
+//falta por a bala a mover e redimensionar a imagem corretamente.
     if(key == ' '){
         p1.shoot();
     }

@@ -1,11 +1,12 @@
 class Bullets{
 
     //propriedades
+    PImage bullet;
 float posX, posY, tam;
 
     //construtor
-    Bullets(){
-
+    Bullets(String name){
+    blt = loadImage(n);
         posX = 0;
         posX = 0;
         tam = 10;

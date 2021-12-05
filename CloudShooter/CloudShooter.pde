@@ -35,7 +35,7 @@ void draw(){
 void keyPressed(){
 
     if(key == ' '){
-        p1.damage();
+        p1.shoot();
     }
 
     if(key == 's'|| key == 'S'){

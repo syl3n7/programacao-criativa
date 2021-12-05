@@ -26,6 +26,10 @@ class Player{
 
 //damage radius
 void damage(){
+
+}
+
+void shoot (){
     fill(255,0,0);
     ellipse(posX, posY, tam, tam);
 }

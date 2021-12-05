@@ -52,7 +52,7 @@ Player p1;
  public void keyPressed(){
 
     if(key == ' '){
-        p1.damage();
+        p1.shoot();
     }
 
     if(key == 's'|| key == 'S'){
@@ -97,6 +97,33 @@ Player p1;
      public void gameLost(){
 
     }
+class Bullets{
+
+    //propriedades
+float posX, posY, tam;
+
+    //construtor
+    Bullets(){
+
+        posX = 0;
+        posX = 0;
+        tam = 10;
+
+    }
+
+//desenhar as balas no ecra
+     public void drawme() {
+            
+            fill(255,0,0);
+            ellipse(posX,posY,tam,tam);
+    
+    }
+//mover a ellipse
+     public void moveme(){
+        posX = posX + 5;
+    }
+
+}
 class CloudsGen{
 
     PImage img;
@@ -152,6 +179,10 @@ class Player{
 
 //damage radius
  public void damage(){
+
+}
+
+ public void shoot (){
     fill(255,0,0);
     ellipse(posX, posY, tam, tam);
 }

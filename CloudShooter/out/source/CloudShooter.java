@@ -129,6 +129,7 @@ class Bullets{
         image(bullet, -650, -650);
         p1.altura = p1.img.height/2;
         p1.largura = p1.img.width/2;
+        
     }
 //mover a ellipse
      public void moveme(){
@@ -197,7 +198,6 @@ class Player{
         posX = x;
         posY = y;
         tam = t;
-
     }
     
 //spawn da imagem mediante parametros indicados
@@ -215,20 +215,22 @@ class Player{
 
  public void shoot (){
     b1.moveme();
-    
 }
 
 //validar posicao e incremento da mesma caso tecla seja pressionada
      public void movedown(){ 
-        if (posY < height){
-            posY += tam;
-        }
+    
+            if (posY < height){
+                posY += tam;
+            }
     }
 
 //validar posicao e incremento da mesma caso tecla seja pressionada
      public void moveup(){
-        if (posY > 0){
-            posY -= tam;
+        while(!moveDown){
+            if (posY > 0){
+                posY -= tam;
+            }
         }
     }
 

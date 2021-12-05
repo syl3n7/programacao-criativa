@@ -35,15 +35,18 @@ void shoot (){
 
 //validar posicao e incremento da mesma caso tecla seja pressionada
     void movedown(){ 
-        if (posY < height){
-            posY += tam;
-        }
+    
+            if (posY < height){
+                posY += tam;
+            }
     }
 
 //validar posicao e incremento da mesma caso tecla seja pressionada
     void moveup(){
-        if (posY > 0){
-            posY -= tam;
+        while(!moveDown){
+            if (posY > 0){
+                posY -= tam;
+            }
         }
     }
 

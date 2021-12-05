@@ -4,7 +4,7 @@ CloudsGen c3;
 Player p1;
 
 void setup() {
-    
+
     frameRate(60);
 
     fullScreen(2, P2D);
@@ -64,16 +64,16 @@ void keyPressed(){
 
     }
 
-    //no more lifelines calls this.
+//no more lifelines calls this.
     void gameOver(){
 
     }
 
-    //going through all the lifelines and leves without dying, calls this.    void gameWon(){
+//going through all the lifelines and leves without dying, calls this.    void gameWon(){
 
     }
 
-    //if the player loses the level this gets called and he loses a lifeline
+//if the player loses the level this gets called and he loses a lifeline
     void gameLost(){
 
     }

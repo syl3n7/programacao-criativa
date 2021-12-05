@@ -2,12 +2,15 @@ class Player{
 
     //Properties
     PImage img;
+    PImage img2;
+    PImage img3;
     float posX, posY, tam;;
     boolean moveUp, moveDown, moveLeft, moveRight;
-
+    
     //Constructor
     Player(String n, float x, float y, float t){
         img = loadImage(n);
+    
         posX = x;
         posY = y;
         tam = t;
@@ -15,11 +18,17 @@ class Player{
     
 //spawn da imagem mediante parametros indicados
     void drawme(){
+        img.resize(650,350);
         image(img, posX, posY);
     }
 
 //tenho que adicionar movimento com variaveis boleanas para ser smooth
 
+//damage radius
+void damage(){
+    fill(255,0,0);
+    ellipse(posX, posY, tam, tam);
+}
 
 //validar posicao e incremento da mesma caso tecla seja pressionada
     void movedown(){ 

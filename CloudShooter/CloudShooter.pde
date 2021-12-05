@@ -34,9 +34,9 @@ void draw(){
 
 void keyPressed(){
 
-    // if(key == ' '){
-    //     p1.shoot();
-    // }
+    if(key == ' '){
+        p1.damage();
+    }
 
     if(key == 's'|| key == 'S'){
         p1.movedown();
@@ -54,6 +54,8 @@ void keyPressed(){
         p1.moveright();
     }
 
+}
+
 //acresventar pontuacao na tabela
     void score(){
     
@@ -69,7 +71,8 @@ void keyPressed(){
 
     }
 
-//going through all the lifelines and leves without dying, calls this.    void gameWon(){
+//going through all the lifelines and leves without dying, calls this.    
+void gameWon(){
 
     }
 
@@ -77,6 +80,3 @@ void keyPressed(){
     void gameLost(){
 
     }
-
-
-}

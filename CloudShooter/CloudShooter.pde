@@ -22,7 +22,7 @@ void setup() {
     //bullet 1
     b1 = new Bullets("bullet.png", -650, -650/2, 20);
     //enemy 1
-    e1 = new Enemy("enemy.png", random(width), random(height), 20, 5, 100);
+    e1 = new Enemy("enemy.png", -650, -650, 20, 5, 100);
     
 }
 

@@ -162,11 +162,12 @@ class CloudsGen {
 class Enemy {
 
   //propriedades
+  float trand = 5;
   PImage img;
-  float posX, posY, tam, vel, damage;
-
+  float posX, posY, vel, damage;
+  int tam;
   //constructor
-  Enemy(String nome, float x, float y, float t, float v, float d) {
+  Enemy(String nome, float x, float y, int t, float v, float d) {
 
     img = loadImage(nome);
     posX = 250;
@@ -182,14 +183,19 @@ class Enemy {
     image(img, posX, posY);
   }
 
-//enimigo anda pelo canvas a passear e vai variando velocidade e posicao consoante a dificuldade
+//fazer enimigo andar pelo canvas variando velocidade horizontal e posicao vertical aleatoria
    public void move() {
 
+  float tsmoothed = noise(trand);
+  tsmoothed = map(tsmoothed, 0, 1, tam, width-tam);
+  posY = tsmoothed;
+
     if (posX < 0) {
-      posY = random(0, height);
       posX = width + tam;
     } else
       posX -= vel;
+
+    trand += 0.09f;
   }
 
 /* placeholder para verificar se foi atingiho pela bala

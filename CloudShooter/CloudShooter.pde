@@ -24,7 +24,7 @@ void setup() {
   //bullet 1
   b1 = new Bullets("bullet.png", -650, -650/2, 20);
   //enemy 1
-  e1 = new Enemy("ovni.png", (width - 300), (height - 300), 20, 5, 100);
+  e1 = new Enemy("ovni.png", (width - 300), (height - 300), 150, 5, 100);
 }
 
 

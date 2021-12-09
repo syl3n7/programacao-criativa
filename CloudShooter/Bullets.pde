@@ -15,16 +15,15 @@ class Bullets {
   //desenhar as balas no ecra
   void drawme() {
 
-    bullet.resize(100, 25);
+    bullet.resize(int(tam), 25);
     //desenhar fora do canvas
     image(bullet, posX, posY);
   }
-  //mover a ellipse
+  //mover a bullet a partir da posicao do player
   void moveme() {
-    //atualizar posicao para parecer spawn a partir da nave
-    drawme(); //substituir altura e largura por variaveis
+    
     if (posY < width-tam) {
-      posY += tam;
+      posX += tam;
     }
   }
 }

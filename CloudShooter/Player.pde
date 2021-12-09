@@ -1,6 +1,6 @@
 class Player {
   //Properties
-  //float altura, largura;  ainda nao estou a usar mas vai servir para controlar algo relacionado com as balas
+  float altura, largura; //altura e largura da imagem
   PImage img; //sprite normal
   //PImage img2; //sprite while moving up
   //PImage img3; //sprite while moving down
@@ -15,6 +15,8 @@ class Player {
     posX = x;
     posY = y;
     tam = t;
+    largura = img.width;
+    altura = img.height;  
   }
 
   //spawn da imagem mediante parametros indicados
@@ -30,6 +32,8 @@ class Player {
   }
 
   void shoot () {
+    b1.posX = posX+largura/2;
+    b1.posY = posY+altura/3.5;
     b1.moveme();
   }
 

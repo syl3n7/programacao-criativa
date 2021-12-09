@@ -39,7 +39,7 @@ Enemy e1;
   //player 1
   p1 = new Player("f16.png", 0, 0, 20);
   //bullet 1
-  b1 = new Bullets("bullet.png", -650, -650/2, 20);
+  b1 = new Bullets("bullet.png", -650, -650/2, 100);
   //enemy 1
   e1 = new Enemy("ovni.png", (width - 300), (height - 300), 150, 5, 100);
 }
@@ -59,13 +59,14 @@ Enemy e1;
   c3.move(); //mover a nuvem3
   p1.drawme(); //desenhar o player1
   b1.drawme(); //desenhar as balas
+  b1.moveme(); //mover as balas
   e1.drawme(); //desenhar o enimigo
   e1.move(); //Bmover o enimo
 }
 
 //tenho que validar se a bala atinge o objeto dentro do draw
  public void keyPressed() {
-  //falta por a bala a mover e ( 👌 redimensionar a imagem corretamente).
+  //falta por a bala a mover-se.
   if (key == ' ') {
     p1.shoot();
   }
@@ -122,16 +123,15 @@ class Bullets {
   //desenhar as balas no ecra
    public void drawme() {
 
-    bullet.resize(100, 25);
+    bullet.resize(PApplet.parseInt(tam), 25);
     //desenhar fora do canvas
     image(bullet, posX, posY);
   }
-  //mover a ellipse
+  //mover a bullet a partir da posicao do player
    public void moveme() {
-    //atualizar posicao para parecer spawn a partir da nave
-    drawme(); //substituir altura e largura por variaveis
+    
     if (posY < width-tam) {
-      posY += tam;
+      posX += tam;
     }
   }
 }
@@ -163,6 +163,7 @@ class Enemy {
 
   //propriedades
   float trand = 5;
+  float tsmoothed;  
   PImage img;
   float posX, posY, vel, damage;
   int tam;
@@ -186,7 +187,7 @@ class Enemy {
 //fazer enimigo andar pelo canvas variando velocidade horizontal e posicao vertical aleatoria
    public void move() {
 
-  float tsmoothed = noise(trand);
+  tsmoothed = noise(trand);
   tsmoothed = map(tsmoothed, 0, 1, tam, width-tam);
   posY = tsmoothed;
 
@@ -195,7 +196,7 @@ class Enemy {
     } else
       posX -= vel;
 
-    trand += 0.09f;
+    trand += 0.05f;
   }
 
 /* placeholder para verificar se foi atingiho pela bala
@@ -211,7 +212,7 @@ class Enemy {
 }
 class Player {
   //Properties
-  //float altura, largura;  ainda nao estou a usar mas vai servir para controlar algo relacionado com as balas
+  float altura, largura; //altura e largura da imagem
   PImage img; //sprite normal
   //PImage img2; //sprite while moving up
   //PImage img3; //sprite while moving down
@@ -226,6 +227,8 @@ class Player {
     posX = x;
     posY = y;
     tam = t;
+    largura = img.width;
+    altura = img.height;  
   }
 
   //spawn da imagem mediante parametros indicados
@@ -241,6 +244,8 @@ class Player {
   }
 
    public void shoot () {
+    b1.posX = posX+largura/2;
+    b1.posY = posY+altura/3.5f;
     b1.moveme();
   }
 

@@ -22,7 +22,7 @@ void setup() {
   //player 1
   p1 = new Player("f16.png", 0, 0, 20);
   //bullet 1
-  b1 = new Bullets("bullet.png", -650, -650/2, 20);
+  b1 = new Bullets("bullet.png", -650, -650/2, 100);
   //enemy 1
   e1 = new Enemy("ovni.png", (width - 300), (height - 300), 150, 5, 100);
 }
@@ -42,13 +42,14 @@ void draw() {
   c3.move(); //mover a nuvem3
   p1.drawme(); //desenhar o player1
   b1.drawme(); //desenhar as balas
+  b1.moveme(); //mover as balas
   e1.drawme(); //desenhar o enimigo
   e1.move(); //Bmover o enimo
 }
 
 //tenho que validar se a bala atinge o objeto dentro do draw
 void keyPressed() {
-  //falta por a bala a mover e ( 👌 redimensionar a imagem corretamente).
+  //falta por a bala a mover-se.
   if (key == ' ') {
     p1.shoot();
   }

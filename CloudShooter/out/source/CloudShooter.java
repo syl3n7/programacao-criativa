@@ -26,7 +26,7 @@ Enemy e1;
 //codigo apenas corrido 1x (inicio do programa)
  public void setup() {
 
-  frameRate(60);
+  frameRate(25);
 
   /* size commented out by preprocessor */;
 
@@ -181,16 +181,16 @@ class Enemy {
     img.resize(300, 300);
     image(img, posX, posY);
   }
-}
 
- public void move() {
 
-  if (posX > width) {
-    posY = random(0, height);
-    posX = width + tam;
-  } else
-    posX -= vel;
-}
+   public void move() {
+
+    if (posX < 0) {
+      posY = random(0, height);
+      posX = width + tam;
+    } else
+      posX -= vel;
+  }
 
 }
 class Player {
@@ -200,7 +200,7 @@ class Player {
   //PImage img2; //sprite while moving up
   //PImage img3; //sprite while moving down
   float posX, posY, tam;
-  boolean moveUp, moveDown, moveLeft, moveRight; //booleanos para controlar o movimento do player
+  boolean moveUp, moveDown, moveLeft, moveRight; //booleanas para controlar o movimento do player
 
   //Constructor
   Player(String n, float x, float y, float t) {
@@ -230,7 +230,6 @@ class Player {
 
   //validar posicao e incremento da mesma caso tecla seja pressionada
    public void movedown() {
-
     if (posY < height) {
       posY += tam;
     }
@@ -238,10 +237,8 @@ class Player {
 
   //validar posicao e incremento da mesma caso tecla seja pressionada
    public void moveup() {
-    while (moveDown) {
-      if (posY > 0) {
-        posY -= tam;
-      }
+    if (posY > 0) {
+      posY -= tam;
     }
   }
 

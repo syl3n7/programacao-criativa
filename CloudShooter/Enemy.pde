@@ -24,7 +24,7 @@ class Enemy {
 
   void move() {
 
-    if (posX > width) {
+    if (posX < 0) {
       posY = random(0, height);
       posX = width + tam;
     } else

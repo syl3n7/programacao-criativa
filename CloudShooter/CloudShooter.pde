@@ -22,28 +22,31 @@ void setup() {
     //bullet 1
     b1 = new Bullets("bullet.png", -650, -650/2, 20);
     //enemy 1
-    e1 = new Enemy("enemy.png", -650, -650, 20, 5, 100);
+    e1 = new Enemy("ovni.png", 250, 250, 20, 5, 100);
     
 }
 
-//quero adicionar um background que vai mudando a HUE de modo a ser dia/noite
+//quero adicionar um background que vai mudando a HUE de modo a ser dia/noite usar com imagem de forma a alterar os pixeis.
 
 //desenhar os elementos do programa no ecra
 void draw(){
-    background(0, 80, 255);
-    c1.drawme();
-    c2.drawme();
-    c3.drawme();
-    c1.move();
-    c2.move();
-    c3.move();
-    p1.drawme();
-    b1.drawme();
+    
+    background(0, 80, 255); //background azul temporario
+    c1.drawme(); //desenhar nuvem1
+    c2.drawme(); //desenhar nuvem2
+    c3.drawme(); //desenhar nuvem3
+    c1.move(); //mover a nuvem1
+    c2.move(); //mover a nuvem2
+    c3.move(); //mover a nuvem3
+    p1.drawme(); //desenhar o player1
+    b1.drawme(); //desenhar as balas
+    e1.drawme(); //desenhar o enimigo
+    e1.move(); //Bmover o enimo 
 }
 
 //tenho que validar se a bala atinge o objeto dentro do draw
 void keyPressed(){
-//falta por a bala a mover e redimensionar a imagem corretamente.
+//falta por a bala a mover e ( 👌 redimensionar a imagem corretamente).
     if(key == ' '){
         p1.shoot();
     }

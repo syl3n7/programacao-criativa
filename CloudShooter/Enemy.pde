@@ -8,9 +8,9 @@ class Enemy{
     Enemy(String nome, float x, float y, float t, float v, float d){
 
         img = loadImage(nome);
-        posX = x;
-        posY = y;
-        tam = t;
+        posX = 250;
+        posY = 250;
+        tam = 20;
         vel = v;
         damage = d;
 
@@ -18,8 +18,21 @@ class Enemy{
 
     void drawme(){
 
-        
+        img.resize(300, 300);
+        image(img, posX, posY);
 
+    }
+
+    }
+
+    void move(){
+            
+            if(posX > width){
+                posY = random(0, height);
+                posX = width + tam;
+            }else
+            posX -= vel;
+    
     }
 
 }

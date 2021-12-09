@@ -145,7 +145,7 @@ class Bullets {
     }
   }
    public boolean enemycheck(){
-    if (dist(b1.posX+b1.tam/2, b1.posY+b1.tam/2, posX+tam/2, posY+tam/2) < tam) {
+    if (dist(b1.posX+b1.tam/2, b1.posY+b1.tam/2, e1.posX+e1.tam/2, e1.posY+e1.tam/2) < tam) {
       return true;
     }
     return false;

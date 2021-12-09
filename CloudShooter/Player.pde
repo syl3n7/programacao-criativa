@@ -1,16 +1,17 @@
 class Player{
-
     //Properties
     float altura, largura;
     PImage img;
     PImage img2;
     PImage img3;
-    float posX, posY, tam;;
+    float posX, posY, tam;
     boolean moveUp, moveDown, moveLeft, moveRight;
     
     //Constructor
-    Player(String n, float x, float y, float t){
+    Player(String n, String n2, String n3 float x, float y, float t){
         img = loadImage(n);
+        img2 = loadimage(n2);
+        img3 = loadimage(n3);
         posX = x;
         posY = y;
         tam = t;

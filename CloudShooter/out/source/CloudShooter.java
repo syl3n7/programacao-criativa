@@ -15,76 +15,79 @@ import java.io.IOException;
 
 public class CloudShooter extends PApplet {
 
-CloudsGen c1;
-CloudsGen c2;
-CloudsGen c3;
-Player p1;
-Bullets b1;
-Enemy e1;
+//inicializar objetos
+    CloudsGen c1;
+    CloudsGen c2;
+    CloudsGen c3;
+    Player p1;
+    Bullets b1;
+    Enemy e1;
 
- public void setup() {
+//codigo apenas corrido 1x (inicio do programa)
+     public void setup() {
 
-    frameRate(60);
+        frameRate(60);
 
-    /* size commented out by preprocessor */;
-    
-    //nuvem 1
-    c1 = new CloudsGen("cloud1.png", 100, random(height));
-    //nuvem 2
-    c2 = new CloudsGen("cloud2.png", 200, random(height));
-    //nuvem 3
-    c3 = new CloudsGen("cloud3.png", 300, random(height));
-    //player 1
-    p1 = new Player("f16.png", 0, 0, 20);
-    //bullet 1
-    b1 = new Bullets("bullet.png", -650, -650/2, 20);
-    //enemy 1
-    e1 = new Enemy("ovni.png", 250, 250, 20, 5, 100);
-    
-}
+        /* size commented out by preprocessor */;
+        
+        //nuvem 1
+        c1 = new CloudsGen("cloud1.png", 100, random(height));
+        //nuvem 2
+        c2 = new CloudsGen("cloud2.png", 200, random(height));
+        //nuvem 3
+        c3 = new CloudsGen("cloud3.png", 300, random(height));
+        //player 1
+        p1 = new Player("f16.png", 0, 0, 20);
+        //bullet 1
+        b1 = new Bullets("bullet.png", -650, -650/2, 20);
+        //enemy 1
+        e1 = new Enemy("ovni.png", 250, 250, 20, 5, 100);
+        
+    }
+
 
 //quero adicionar um background que vai mudando a HUE de modo a ser dia/noite usar com imagem de forma a alterar os pixeis.
 
 //desenhar os elementos do programa no ecra
- public void draw(){
-    
-    background(0, 80, 255); //background azul temporario
-    c1.drawme(); //desenhar nuvem1
-    c2.drawme(); //desenhar nuvem2
-    c3.drawme(); //desenhar nuvem3
-    c1.move(); //mover a nuvem1
-    c2.move(); //mover a nuvem2
-    c3.move(); //mover a nuvem3
-    p1.drawme(); //desenhar o player1
-    b1.drawme(); //desenhar as balas
-    e1.drawme(); //desenhar o enimigo
-    e1.move(); //Bmover o enimo 
-}
+     public void draw(){
+        
+        background(0, 80, 255); //background azul temporario
+        c1.drawme(); //desenhar nuvem1
+        c2.drawme(); //desenhar nuvem2
+        c3.drawme(); //desenhar nuvem3
+        c1.move(); //mover a nuvem1
+        c2.move(); //mover a nuvem2
+        c3.move(); //mover a nuvem3
+        p1.drawme(); //desenhar o player1
+        b1.drawme(); //desenhar as balas
+        e1.drawme(); //desenhar o enimigo
+        e1.move(); //Bmover o enimo 
+    }
 
 //tenho que validar se a bala atinge o objeto dentro do draw
- public void keyPressed(){
-//falta por a bala a mover e redimensionar a imagem corretamente.
-    if(key == ' '){
-        p1.shoot();
-    }
+     public void keyPressed(){
+    //falta por a bala a mover e ( 👌 redimensionar a imagem corretamente).
+        if(key == ' '){
+            p1.shoot();
+        }
 
-    if(key == 's'|| key == 'S'){
-        p1.movedown();
-    }
-    
-    if(key == 'w'|| key == 'W'){
-        p1.moveup(); 
-    }
+        if(key == 's'|| key == 'S'){
+            p1.movedown();
+        }
+        
+        if(key == 'w'|| key == 'W'){
+            p1.moveup(); 
+        }
 
-    if(key == 'a'|| key == 'A'){
-        p1.moveleft();
-    }
+        if(key == 'a'|| key == 'A'){
+            p1.moveleft();
+        }
 
-    if(key == 'd'|| key == 'D'){
-        p1.moveright();
-    }
+        if(key == 'd'|| key == 'D'){
+            p1.moveright();
+        }
 
-}
+    }
 
 //acresventar pontuacao na tabela
      public void score(){
@@ -100,9 +103,8 @@ Enemy e1;
      public void gameOver(){
 
     }
-
 //going through all the lifelines and leves without dying, calls this.    
- public void gameWon(){
+     public void gameWon(){
 
     }
 
@@ -212,19 +214,21 @@ class Player{
     PImage img;
     PImage img2;
     PImage img3;
-    float posX, posY, tam;;
+    float posX, posY, tam;
     boolean moveUp, moveDown, moveLeft, moveRight;
     
     //Constructor
-    Player(String n, float x, float y, float t){
+    Player(String n, String n2, String n3 float x, float y, float t){
         img = loadImage(n);
+        img2 = loadimage(n2);
+        img3 = loadimage(n3);
         posX = x;
         posY = y;
         tam = t;
     }
     
 //spawn da imagem mediante parametros indicados
-     public void drawme(){
+    void drawme(){
         img.resize(650,350);
         image(img, posX, posY);
     }
@@ -232,16 +236,16 @@ class Player{
 //tenho que adicionar movimento com variaveis boleanas para ser smooth
 
 //damage radius
- public void damage(){
+void damage(){
 
 }
 
- public void shoot (){
+void shoot (){
     b1.moveme();
 }
 
 //validar posicao e incremento da mesma caso tecla seja pressionada
-     public void movedown(){ 
+    void movedown(){ 
     
             if (posY < height){
                 posY += tam;
@@ -249,7 +253,7 @@ class Player{
     }
 
 //validar posicao e incremento da mesma caso tecla seja pressionada
-     public void moveup(){
+    void moveup(){
         while(!moveDown){
             if (posY > 0){
                 posY -= tam;
@@ -258,14 +262,14 @@ class Player{
     }
 
 //validar posicao e incremento da mesma caso tecla seja pressionada
-     public void moveleft(){
+    void moveleft(){
         if (posX > 0){
             posX -= tam;
         }
     }
 
 //validar posicao e incremento da mesma caso tecla seja pressionada
-     public void moveright(){
+    void moveright(){
         if (posX < width){
             posX += tam;
         }

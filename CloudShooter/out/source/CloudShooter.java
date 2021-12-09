@@ -22,9 +22,12 @@ CloudsGen c3;
 Player p1;
 Bullets b1;
 Enemy e1;
+int score = 0;
 
 //codigo apenas corrido 1x (inicio do programa)
  public void setup() {
+
+  rectMode(CENTER);
 
   frameRate(25);
 
@@ -62,6 +65,9 @@ Enemy e1;
   b1.moveme(); //mover as balas
   e1.drawme(); //desenhar o enimigo
   e1.move(); //Bmover o enimo
+//  e1.healthcheck(); //verificar se o enimigo morreu ou nao
+  score();
+  b1.enemycheck(); //verificar se a bala atingiu o enimigo  
 }
 
 //tenho que validar se a bala atinge o objeto dentro do draw
@@ -90,6 +96,10 @@ Enemy e1;
 
 //acresventar pontuacao na tabela
  public void score() {
+  if (b1.enemycheck()) {
+    score++;
+    println("hit" + score);
+  }
 }
 
 //tabela de pontuacao
@@ -134,6 +144,12 @@ class Bullets {
       posX += tam;
     }
   }
+   public boolean enemycheck(){
+    if (dist(b1.posX+b1.tam/2, b1.posY+b1.tam/2, posX+tam/2, posY+tam/2) < tam) {
+      return true;
+    }
+    return false;
+  }
 }
 class CloudsGen {
 
@@ -166,7 +182,7 @@ class Enemy {
   float tsmoothed;  
   PImage img;
   float posX, posY, vel, damage;
-  int tam;
+  int tam, health;
   //constructor
   Enemy(String nome, float x, float y, int t, float v, float d) {
 
@@ -176,6 +192,8 @@ class Enemy {
     tam = t;
     vel = v;
     damage = d;
+    health = 100;
+
   }
 
    public void drawme() {
@@ -199,16 +217,14 @@ class Enemy {
     trand += 0.05f;
   }
 
-/* placeholder para verificar se foi atingiho pela bala
-  void hit(float x, float y) {
+/* placeholder para verificar se foi atingiho pela bala*/
+   public void healthcheck() {
 
-    if (dist(x, y, posX, posY) < tam) {
-      posX = random(0, width);
-      posY = random(0, height);
-      vel += 0.5;
-      damage += 0.5;
+    if (health <= 0) {
+      
     }
-  }*/
+
+  }
 }
 class Player {
   //Properties

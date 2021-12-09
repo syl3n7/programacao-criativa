@@ -5,7 +5,7 @@ class Enemy {
   float tsmoothed;  
   PImage img;
   float posX, posY, vel, damage;
-  int tam;
+  int tam, health;
   //constructor
   Enemy(String nome, float x, float y, int t, float v, float d) {
 
@@ -15,6 +15,8 @@ class Enemy {
     tam = t;
     vel = v;
     damage = d;
+    health = 100;
+
   }
 
   void drawme() {
@@ -38,14 +40,12 @@ class Enemy {
     trand += 0.05;
   }
 
-/* placeholder para verificar se foi atingiho pela bala
-  void hit(float x, float y) {
+/* placeholder para verificar se foi atingiho pela bala*/
+  void healthcheck() {
 
-    if (dist(x, y, posX, posY) < tam) {
-      posX = random(0, width);
-      posY = random(0, height);
-      vel += 0.5;
-      damage += 0.5;
+    if (health <= 0) {
+      
     }
-  }*/
+
+  }
 }

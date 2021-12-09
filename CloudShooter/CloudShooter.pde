@@ -5,9 +5,12 @@ CloudsGen c3;
 Player p1;
 Bullets b1;
 Enemy e1;
+int score = 0;
 
 //codigo apenas corrido 1x (inicio do programa)
 void setup() {
+
+  rectMode(CENTER);
 
   frameRate(25);
 
@@ -45,6 +48,9 @@ void draw() {
   b1.moveme(); //mover as balas
   e1.drawme(); //desenhar o enimigo
   e1.move(); //Bmover o enimo
+//  e1.healthcheck(); //verificar se o enimigo morreu ou nao
+  score();
+  b1.enemycheck(); //verificar se a bala atingiu o enimigo  
 }
 
 //tenho que validar se a bala atinge o objeto dentro do draw
@@ -73,6 +79,10 @@ void keyPressed() {
 
 //acresventar pontuacao na tabela
 void score() {
+  if (b1.enemycheck()) {
+    score++;
+    println("hit" + score);
+  }
 }
 
 //tabela de pontuacao

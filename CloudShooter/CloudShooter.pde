@@ -9,9 +9,9 @@ Enemy e1;
 //codigo apenas corrido 1x (inicio do programa)
 void setup() {
 
-  frameRate(60);
+  frameRate(25);
 
-  fullScreen(2, P2D);
+  fullScreen(P2D);
 
   //nuvem 1
   c1 = new CloudsGen("cloud1.png", 100, random(height));
@@ -24,7 +24,7 @@ void setup() {
   //bullet 1
   b1 = new Bullets("bullet.png", -650, -650/2, 20);
   //enemy 1
-  e1 = new Enemy("ovni.png", 250, 250, 20, 5, 100);
+  e1 = new Enemy("ovni.png", (width - 300), (height - 300), 20, 5, 100);
 }
 
 

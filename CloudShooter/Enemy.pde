@@ -20,15 +20,15 @@ class Enemy {
     img.resize(300, 300);
     image(img, posX, posY);
   }
-}
 
-void move() {
 
-  if (posX > width) {
-    posY = random(0, height);
-    posX = width + tam;
-  } else
-    posX -= vel;
-}
+  void move() {
+
+    if (posX > width) {
+      posY = random(0, height);
+      posX = width + tam;
+    } else
+      posX -= vel;
+  }
 
 }

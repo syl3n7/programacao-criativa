@@ -16,268 +16,252 @@ import java.io.IOException;
 public class CloudShooter extends PApplet {
 
 //inicializar objetos
-    CloudsGen c1;
-    CloudsGen c2;
-    CloudsGen c3;
-    Player p1;
-    Bullets b1;
-    Enemy e1;
+CloudsGen c1;
+CloudsGen c2;
+CloudsGen c3;
+Player p1;
+Bullets b1;
+Enemy e1;
 
 //codigo apenas corrido 1x (inicio do programa)
-     public void setup() {
+ public void setup() {
 
-        frameRate(60);
+  frameRate(60);
 
-        /* size commented out by preprocessor */;
-        
-        //nuvem 1
-        c1 = new CloudsGen("cloud1.png", 100, random(height));
-        //nuvem 2
-        c2 = new CloudsGen("cloud2.png", 200, random(height));
-        //nuvem 3
-        c3 = new CloudsGen("cloud3.png", 300, random(height));
-        //player 1
-        p1 = new Player("f16.png", 0, 0, 20);
-        //bullet 1
-        b1 = new Bullets("bullet.png", -650, -650/2, 20);
-        //enemy 1
-        e1 = new Enemy("ovni.png", 250, 250, 20, 5, 100);
-        
-    }
+  /* size commented out by preprocessor */;
+
+  //nuvem 1
+  c1 = new CloudsGen("cloud1.png", 100, random(height));
+  //nuvem 2
+  c2 = new CloudsGen("cloud2.png", 200, random(height));
+  //nuvem 3
+  c3 = new CloudsGen("cloud3.png", 300, random(height));
+  //player 1
+  p1 = new Player("f16.png", 0, 0, 20);
+  //bullet 1
+  b1 = new Bullets("bullet.png", -650, -650/2, 20);
+  //enemy 1
+  e1 = new Enemy("ovni.png", (width - 300), (height - 300), 20, 5, 100);
+}
 
 
 //quero adicionar um background que vai mudando a HUE de modo a ser dia/noite usar com imagem de forma a alterar os pixeis.
 
 //desenhar os elementos do programa no ecra
-     public void draw(){
-        
-        background(0, 80, 255); //background azul temporario
-        c1.drawme(); //desenhar nuvem1
-        c2.drawme(); //desenhar nuvem2
-        c3.drawme(); //desenhar nuvem3
-        c1.move(); //mover a nuvem1
-        c2.move(); //mover a nuvem2
-        c3.move(); //mover a nuvem3
-        p1.drawme(); //desenhar o player1
-        b1.drawme(); //desenhar as balas
-        e1.drawme(); //desenhar o enimigo
-        e1.move(); //Bmover o enimo 
-    }
+ public void draw() {
+
+  background(0, 80, 255); //background azul temporario
+  c1.drawme(); //desenhar nuvem1
+  c2.drawme(); //desenhar nuvem2
+  c3.drawme(); //desenhar nuvem3
+  c1.move(); //mover a nuvem1
+  c2.move(); //mover a nuvem2
+  c3.move(); //mover a nuvem3
+  p1.drawme(); //desenhar o player1
+  b1.drawme(); //desenhar as balas
+  e1.drawme(); //desenhar o enimigo
+  e1.move(); //Bmover o enimo
+}
 
 //tenho que validar se a bala atinge o objeto dentro do draw
-     public void keyPressed(){
-    //falta por a bala a mover e ( 👌 redimensionar a imagem corretamente).
-        if(key == ' '){
-            p1.shoot();
-        }
+ public void keyPressed() {
+  //falta por a bala a mover e ( 👌 redimensionar a imagem corretamente).
+  if (key == ' ') {
+    p1.shoot();
+  }
 
-        if(key == 's'|| key == 'S'){
-            p1.movedown();
-        }
-        
-        if(key == 'w'|| key == 'W'){
-            p1.moveup(); 
-        }
+  if (key == 's'|| key == 'S') {
+    p1.movedown();
+  }
 
-        if(key == 'a'|| key == 'A'){
-            p1.moveleft();
-        }
+  if (key == 'w'|| key == 'W') {
+    p1.moveup();
+  }
 
-        if(key == 'd'|| key == 'D'){
-            p1.moveright();
-        }
+  if (key == 'a'|| key == 'A') {
+    p1.moveleft();
+  }
 
-    }
+  if (key == 'd'|| key == 'D') {
+    p1.moveright();
+  }
+}
 
 //acresventar pontuacao na tabela
-     public void score(){
-    
-    }
+ public void score() {
+}
 
 //tabela de pontuacao
-     public void highscore(){
-
-    }
+ public void highscore() {
+}
 
 //no more lifelines calls this.
-     public void gameOver(){
-
-    }
-//going through all the lifelines and leves without dying, calls this.    
-     public void gameWon(){
-
-    }
+ public void gameOver() {
+}
+//going through all the lifelines and leves without dying, calls this.
+ public void gameWon() {
+}
 
 //if the player loses the level this gets called and he loses a lifeline
-     public void gameLost(){
-
-    }
-class Bullets{
-
-    //propriedades
-    PImage bullet;
-    float posX, posY, tam;
-
-    //construtor
-    Bullets(String name, float x, float y, float t){
-        bullet = loadImage(name);
-        posX = x;
-        posY = y;
-        tam = t;
-    }
-
-//desenhar as balas no ecra
-     public void drawme() {
-
-        bullet.resize(100,25);
-        //desenhar fora do canvas
-        image(bullet, posX, posY);
-    }
-//mover a ellipse
-     public void moveme(){
-        //atualizar posicao para parecer spawn a partir da nave
-        drawme(); //substituir altura e largura por variaveis
-        if (posY < width-tam){
-            posY += tam;
-        }
-    }
+ public void gameLost() {
 }
-class CloudsGen{
+class Bullets {
 
-    PImage img;
-    float posX, posY;
+  //propriedades
+  PImage bullet;
+  float posX, posY, tam;
 
-    CloudsGen(String nome, float x, float y){
-        img = loadImage(nome);
-        posX = x;
-        posY = y;
+  //construtor
+  Bullets(String name, float x, float y, float t) {
+    bullet = loadImage(name);
+    posX = x;
+    posY = y;
+    tam = t;
+  }
+
+  //desenhar as balas no ecra
+   public void drawme() {
+
+    bullet.resize(100, 25);
+    //desenhar fora do canvas
+    image(bullet, posX, posY);
+  }
+  //mover a ellipse
+   public void moveme() {
+    //atualizar posicao para parecer spawn a partir da nave
+    drawme(); //substituir altura e largura por variaveis
+    if (posY < width-tam) {
+      posY += tam;
     }
-
-     public void drawme(){
-        image(img, posX, posY);  
-    }
-
-     public void move(){
-        if(posX > -img.width){
-            posX -= random(2, 25);
-        }
-        else{
-            posX = width;
-            posY = random(height);
-        }
-        
-    }
-
+  }
 }
-class Enemy{
+class CloudsGen {
 
-    //propriedades
-    PImage img;
-    float posX, posY, tam, vel, damage;
+  PImage img;
+  float posX, posY;
 
-    //constructor
-    Enemy(String nome, float x, float y, float t, float v, float d){
+  CloudsGen(String nome, float x, float y) {
+    img = loadImage(nome);
+    posX = x;
+    posY = y;
+  }
 
-        img = loadImage(nome);
-        posX = 250;
-        posY = 250;
-        tam = 20;
-        vel = v;
-        damage = d;
+   public void drawme() {
+    image(img, posX, posY);
+  }
 
+   public void move() {
+    if (posX > -img.width) {
+      posX -= random(2, 25);
+    } else {
+      posX = width;
+      posY = random(height);
     }
-
-     public void drawme(){
-
-        img.resize(300, 300);
-        image(img, posX, posY);
-
-    }
-
-    }
-
-     public void move(){
-            
-            if(posX > width){
-                posY = random(0, height);
-                posX = width + tam;
-            }else
-            posX -= vel;
-    
-    }
-
+  }
 }
-class Player{
+class Enemy {
 
-    //Properties
-    float altura, largura;
-    PImage img;
-    PImage img2;
-    PImage img3;
-    float posX, posY, tam;
-    boolean moveUp, moveDown, moveLeft, moveRight;
-    
-    //Constructor
-    Player(String n, String n2, String n3 float x, float y, float t){
-        img = loadImage(n);
-        img2 = loadimage(n2);
-        img3 = loadimage(n3);
-        posX = x;
-        posY = y;
-        tam = t;
-    }
-    
-//spawn da imagem mediante parametros indicados
-    void drawme(){
-        img.resize(650,350);
-        image(img, posX, posY);
-    }
+  //propriedades
+  PImage img;
+  float posX, posY, tam, vel, damage;
 
-//tenho que adicionar movimento com variaveis boleanas para ser smooth
+  //constructor
+  Enemy(String nome, float x, float y, float t, float v, float d) {
 
-//damage radius
-void damage(){
+    img = loadImage(nome);
+    posX = 250;
+    posY = 250;
+    tam = 20;
+    vel = v;
+    damage = d;
+  }
 
+   public void drawme() {
+
+    img.resize(300, 300);
+    image(img, posX, posY);
+  }
 }
 
-void shoot (){
+ public void move() {
+
+  if (posX > width) {
+    posY = random(0, height);
+    posX = width + tam;
+  } else
+    posX -= vel;
+}
+
+}
+class Player {
+  //Properties
+  //float altura, largura;  ainda nao estou a usar mas vai servir para controlar algo relacionado com as balas
+  PImage img; //sprite normal
+  //PImage img2; //sprite while moving up
+  //PImage img3; //sprite while moving down
+  float posX, posY, tam;
+  boolean moveUp, moveDown, moveLeft, moveRight; //booleanos para controlar o movimento do player
+
+  //Constructor
+  Player(String n, float x, float y, float t) {
+    img = loadImage(n);
+    //img2 = loadimage(n2);
+    //img3 = loadimage(n3);
+    posX = x;
+    posY = y;
+    tam = t;
+  }
+
+  //spawn da imagem mediante parametros indicados
+   public void drawme() {
+    img.resize(650, 350);
+    image(img, posX, posY);
+  }
+
+  //tenho que adicionar movimento com variaveis boleanas para ser smooth
+
+  //damage radius
+   public void damage() {
+  }
+
+   public void shoot () {
     b1.moveme();
+  }
+
+  //validar posicao e incremento da mesma caso tecla seja pressionada
+   public void movedown() {
+
+    if (posY < height) {
+      posY += tam;
+    }
+  }
+
+  //validar posicao e incremento da mesma caso tecla seja pressionada
+   public void moveup() {
+    while (moveDown) {
+      if (posY > 0) {
+        posY -= tam;
+      }
+    }
+  }
+
+  //validar posicao e incremento da mesma caso tecla seja pressionada
+   public void moveleft() {
+    if (posX > 0) {
+      posX -= tam;
+    }
+  }
+
+  //validar posicao e incremento da mesma caso tecla seja pressionada
+   public void moveright() {
+    if (posX < width) {
+      posX += tam;
+    }
+  }
 }
 
-//validar posicao e incremento da mesma caso tecla seja pressionada
-    void movedown(){ 
-    
-            if (posY < height){
-                posY += tam;
-            }
-    }
 
-//validar posicao e incremento da mesma caso tecla seja pressionada
-    void moveup(){
-        while(!moveDown){
-            if (posY > 0){
-                posY -= tam;
-            }
-        }
-    }
-
-//validar posicao e incremento da mesma caso tecla seja pressionada
-    void moveleft(){
-        if (posX > 0){
-            posX -= tam;
-        }
-    }
-
-//validar posicao e incremento da mesma caso tecla seja pressionada
-    void moveright(){
-        if (posX < width){
-            posX += tam;
-        }
-    }
-}
-
-
-  public void settings() { fullScreen(2); }
+  public void settings() { fullScreen(P2D); }
 
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "CloudShooter" };

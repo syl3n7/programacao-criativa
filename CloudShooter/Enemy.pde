@@ -10,8 +10,8 @@ class Enemy {
   Enemy(String nome, float x, float y, int t, float v, float d) {
 
     img = loadImage(nome);
-    posX = 250;
-    posY = 250;
+    posX = width-tam;
+    posY = height-tam;
     tam = t;
     vel = v;
     damage = d;

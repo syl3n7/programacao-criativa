@@ -64,4 +64,19 @@ class Player {
       posX += tam;
     }
   }
+
+  //codigo importado do exemplo do professor em ordem a obter movimento suave
+  /*  void show() {
+    if (die) {
+      posY += 3*speed;   
+    } else {
+      if (left) posX -= speed;  // "if(left == true)" igual a "if(left)"
+      else if (right) posX += speed;
+      else if (up) posY -= speed;
+      else if (down) posY += speed;
+    }
+    image(img, posX, posY);
+  }
+  */
+
 }

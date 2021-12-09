@@ -77,6 +77,22 @@ void keyPressed() {
   }
 }
 
+//codigo importado do exemplo do professor em ordem a obter movimento suave
+/*void keyPressed() {
+  if(key == 'j' || key == 'J') plane.left = true;
+  if(key == 'l' || key == 'L') plane.right = true;
+  if(key == 'i' || key == 'I') plane.up = true;
+  if(key == 'k' || key == 'K') plane.down = true;
+}
+void keyReleased() {
+  if(key == 'j' || key == 'J') plane.left = false;
+  if(key == 'l' || key == 'L') plane.right = false;
+  if(key == 'i' || key == 'I') plane.up = false;
+  if(key == 'k' || key == 'K') plane.down = false;
+}
+*/
+
+
 //acresventar pontuacao na tabela
 void score() {
   if (b1.enemycheck()) {

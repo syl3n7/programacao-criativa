@@ -1,38 +1,34 @@
-class Enemy{
+class Enemy {
 
-    //propriedades
-    PImage img;
-    float posX, posY, tam, vel, damage;
+  //propriedades
+  PImage img;
+  float posX, posY, tam, vel, damage;
 
-    //constructor
-    Enemy(String nome, float x, float y, float t, float v, float d){
+  //constructor
+  Enemy(String nome, float x, float y, float t, float v, float d) {
 
-        img = loadImage(nome);
-        posX = 250;
-        posY = 250;
-        tam = 20;
-        vel = v;
-        damage = d;
+    img = loadImage(nome);
+    posX = 250;
+    posY = 250;
+    tam = 20;
+    vel = v;
+    damage = d;
+  }
 
-    }
+  void drawme() {
 
-    void drawme(){
+    img.resize(300, 300);
+    image(img, posX, posY);
+  }
+}
 
-        img.resize(300, 300);
-        image(img, posX, posY);
+void move() {
 
-    }
-
-    }
-
-    void move(){
-            
-            if(posX > width){
-                posY = random(0, height);
-                posX = width + tam;
-            }else
-            posX -= vel;
-    
-    }
+  if (posX > width) {
+    posY = random(0, height);
+    posX = width + tam;
+  } else
+    posX -= vel;
+}
 
 }

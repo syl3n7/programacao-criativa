@@ -2,7 +2,7 @@ class Bola{
 
     float posX, posY, tam, angle;
 
-    Bola(float x, float y, float a) {
+    Bola(float a) {
 
         tam = 20;
         angle = a;
@@ -15,13 +15,10 @@ class Bola{
         float cy = height / 2;
         float r = 300;
 
-        b.posX = cx + r * cos(ang);
-        b.posY = cx + r * sin(ang);
-
-        fill(0);
-        ellipse(b.posX, b.posY, b.tam, b.tam);
-
-        angle += 0.01;
+            posX = cx + r * cos(angle);
+            posY = cx + r * sin(angle);
+            fill(255);
+            ellipse(posX, posY, tam, tam);
 
     }
 

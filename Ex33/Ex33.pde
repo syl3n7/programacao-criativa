@@ -1,12 +1,14 @@
 Bola[] b;
-int n = 24;
+float n = 10;
 
 void setup (){
 
     size(800,800);
-    b = new Bola[n];
-    for(int i = 0; i < n; i++){
-        b[i] = new Bola(i);
+    b = new Bola[int(n)];
+    int k = 0;
+    for(float i = 0; i < TWO_PI; i = i + TWO_PI/n){
+        b[k] = new Bola(i);
+        k++;
     }
 
 }
@@ -14,6 +16,7 @@ void setup (){
 void draw(){
 
     background(0);
-    b.drawme();
-
+    for(int i = 0; i < b.length; i++){
+        b[i].drawme();
+    }
 }

@@ -44,6 +44,7 @@ void draw() {
   c2.move(); //mover a nuvem2
   c3.move(); //mover a nuvem3
   p1.drawme(); //desenhar o player1
+  p1.moveme(); //mover o player1
   b1.drawme(); //desenhar as balas
   b1.moveme(); //mover as balas
   e1.drawme(); //desenhar o enimigo
@@ -60,21 +61,20 @@ void keyPressed() {
     p1.shoot();
   }
 
-  if (key == 's'|| key == 'S') {
-    p1.movedown();
-  }
+  if(key == 's'|| key == 'S') p1.moveDown = true;
+  if(key == 'w'|| key == 'W') p1.moveUp = true;
+  if(key == 'a'|| key == 'A') p1.moveLeft = true;
+  if(key == 'd'|| key == 'D') p1.moveRight = true;
 
-  if (key == 'w'|| key == 'W') {
-    p1.moveup();
-  }
+}
 
-  if (key == 'a'|| key == 'A') {
-    p1.moveleft();
-  }
+void keyReleased() {
 
-  if (key == 'd'|| key == 'D') {
-    p1.moveright();
-  }
+  if(key == 's'|| key == 'S') p1.moveDown = false;
+  if(key == 'w'|| key == 'W') p1.moveUp = false;
+  if(key == 'a'|| key == 'A') p1.moveLeft = false;
+  if(key == 'd'|| key == 'D') p1.moveRight = false;
+
 }
 
 //codigo importado do exemplo do professor em ordem a obter movimento suave
@@ -92,7 +92,6 @@ void keyReleased() {
 }
 */
 
-
 //acresventar pontuacao na tabela
 void score() {
   if (b1.enemycheck()) {
@@ -103,15 +102,20 @@ void score() {
 
 //tabela de pontuacao
 void highscore() {
+
 }
 
 //no more lifelines calls this.
 void gameOver() {
+
 }
+
 //going through all the lifelines and leves without dying, calls this.
 void gameWon() {
+
 }
 
 //if the player loses the level this gets called and he loses a lifeline
 void gameLost() {
+  
 }

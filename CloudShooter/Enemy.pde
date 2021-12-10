@@ -23,7 +23,7 @@ class Enemy {
 
   void drawme() {
 
-    img.resize(tam, tam); //redimensiona a imagem
+    img.resize(int(tam), int(tam)); //redimensiona a imagem
     image(img, posX, posY);
 
   }
@@ -33,16 +33,16 @@ class Enemy {
   
     posY = randomGaussian();
     posY = posY * dp + mediaY; //posicao vertical dinamica, dificuldade 0
-    tsmoothed = noise(trand);
-    tsmoothed = map(tsmoothed, 0, 1, tam, width-tam);
-    tam = tsmoothed;
+    //tsmoothed = noise(trand);
+    //tsmoothed = map(tsmoothed, 0, 1, tam, width-tam);
+    //tam = tsmoothed;
 
     if (posX < 0) {
       posX = width + tam;
     } else
       posX -= vel;
 
-    trand += 0.05;
+    //trand += 0.05;
   }
 
 /* placeholder para verificar se foi atingiho pela bala*/

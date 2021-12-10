@@ -60,21 +60,26 @@ void keyPressed() {
     p1.shoot();
   }
 
-  if (key == 's'|| key == 'S') {
-    p1.movedown();
-  }
+  if(key == 's'|| key == 'S') p1.moveDown = true;
 
-  if (key == 'w'|| key == 'W') {
-    p1.moveup();
-  }
+  if(key == 'w'|| key == 'W') p1.moveUp = true;
 
-  if (key == 'a'|| key == 'A') {
-    p1.moveleft();
-  }
+  if(key == 'a'|| key == 'A') p1.moveLeft = true;
 
-  if (key == 'd'|| key == 'D') {
-    p1.moveright();
-  }
+  if(key == 'd'|| key == 'D') p1.moveRight = true;
+
+}
+
+void keyReleased() {
+
+  if(key == 's'|| key == 'S') p1.moveDown = false;
+
+  if(key == 'w'|| key == 'W') p1.moveUp = false;
+
+  if(key == 'a'|| key == 'A') p1.moveLeft = false;
+
+  if(key == 'd'|| key == 'D') p1.moveRight = false;
+
 }
 
 //codigo importado do exemplo do professor em ordem a obter movimento suave

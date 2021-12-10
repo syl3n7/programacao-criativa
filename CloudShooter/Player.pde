@@ -16,7 +16,11 @@ class Player {
     posY = y;
     tam = t;
     largura = img.width;
-    altura = img.height;  
+    altura = img.height;
+    moveDown  = false;
+    moveLeft  = false;
+    moveRight = false;
+    moveUp = false;  
   }
 
   //spawn da imagem mediante parametros indicados
@@ -40,30 +44,31 @@ class Player {
   //validar posicao e incremento da mesma caso tecla seja pressionada
   void movedown() {
     if (posY < height) {
-      posY += tam;
+      if (moveDown) posY += tam;
     }
   }
 
   //validar posicao e incremento da mesma caso tecla seja pressionada
   void moveup() {
     if (posY > 0) {
-      posY -= tam;
+      if (moveUp) posY -= tam;
     }
   }
 
   //validar posicao e incremento da mesma caso tecla seja pressionada
   void moveleft() {
     if (posX > 0) {
-      posX -= tam;
+      if (moveLeft) posX -= tam;
     }
   }
 
   //validar posicao e incremento da mesma caso tecla seja pressionada
   void moveright() {
     if (posX < width) {
-      posX += tam;
+      if (moveRight) posX += tam;
     }
   }
+
 
   //codigo importado do exemplo do professor em ordem a obter movimento suave
   /*  void show() {

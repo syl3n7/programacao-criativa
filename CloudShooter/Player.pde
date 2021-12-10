@@ -42,34 +42,15 @@ class Player {
   }
 
   //validar posicao e incremento da mesma caso tecla seja pressionada
-  void movedown() {
-    if (posY < height) {
-      if (moveDown) posY += tam;
-    }
+  void moveme(){
+
+    if (moveLeft) posX -= tam;  // "if(left == true)" igual a "if(left)"
+    else if (moveRight) posX += tam;
+    else if (moveUp) posY -= tam;
+    else if (moveDown) posY += tam;
+
   }
-
-  //validar posicao e incremento da mesma caso tecla seja pressionada
-  void moveup() {
-    if (posY > 0) {
-      if (moveUp) posY -= tam;
-    }
-  }
-
-  //validar posicao e incremento da mesma caso tecla seja pressionada
-  void moveleft() {
-    if (posX > 0) {
-      if (moveLeft) posX -= tam;
-    }
-  }
-
-  //validar posicao e incremento da mesma caso tecla seja pressionada
-  void moveright() {
-    if (posX < width) {
-      if (moveRight) posX += tam;
-    }
-  }
-
-
+  
   //codigo importado do exemplo do professor em ordem a obter movimento suave
   /*  void show() {
     if (die) {

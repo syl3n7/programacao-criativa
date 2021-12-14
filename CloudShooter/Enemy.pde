@@ -28,28 +28,30 @@ class Enemy {
 
   }
 
+//necessito de fazer com que o enimigo se multiplique a cada posY completo 
+
 //fazer enimigo andar pelo canvas variando velocidade horizontal e posicao vertical aleatoria
   void move() {
   
-    posY = randomGaussian();
-    posY = posY * dp + mediaY; //posicao vertical dinamica, dificuldade 0
-    //tsmoothed = noise(trand);
-    //tsmoothed = map(tsmoothed, 0, 1, tam, width-tam);
-    //tam = tsmoothed;
+    tam = randomGaussian();
+    tam = tam * dp + mediaY; 
+    tsmoothed = noise(trand); //posicao vertical dinamica, dificuldade 0
+    tsmoothed = map(tsmoothed, 0, 1, posY, width-tam);
+    tam = tsmoothed;
 
     if (posX < 0) {
       posX = width + tam;
     } else
       posX -= vel;
 
-    //trand += 0.05;
+    trand += 0.05;
   }
 
 /* placeholder para verificar se foi atingiho pela bala*/
   void healthcheck() {
 
     if (health <= 0) {
-      
+      enemy.hide();
     }
 
   }

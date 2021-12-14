@@ -119,3 +119,7 @@ void gameWon() {
 void gameLost() {
   
 }
+
+void mousePressed() {
+  if(state == false) if(mouseX < height/2  && mouseY < width/2) state = true;
+}

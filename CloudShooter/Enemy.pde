@@ -48,6 +48,7 @@ class Enemy {
   }
 
 /* placeholder para verificar se foi atingiho pela bala*/
+  /* placeholder code 
   void healthcheck() {
 
     if (health <= 0) {
@@ -55,4 +56,5 @@ class Enemy {
     }
 
   }
+  */
 }

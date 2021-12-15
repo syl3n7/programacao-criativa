@@ -112,5 +112,5 @@ void gameLost() {
 }
 
 void mousePressed() {
-  if(state == true) state = false;
+  if(m.state == true) m.state = false;
 }

@@ -1,4 +1,5 @@
 //inicializar objetos
+Menu m;
 CloudsGen c1;
 CloudsGen c2;
 CloudsGen c3;
@@ -16,6 +17,8 @@ void setup() {
 
   fullScreen(P2D);
 
+  //menu start
+  m = new Menu(height/2, width/2);
   //nuvem 1
   c1 = new CloudsGen("cloud1.png", 100, random(height));
   //nuvem 2
@@ -28,6 +31,7 @@ void setup() {
   b1 = new Bullets("bullet.png", -650, -650/2, 100);
   //enemy 1
   e1 = new Enemy("ovni.png", (width - 300), (height - 300), 150, 5, 100);
+
 }
 
 
@@ -36,22 +40,9 @@ void setup() {
 //desenhar os elementos do programa no ecra
 void draw() {
 
-  background(0, 80, 255); //background azul temporario
-  c1.drawme(); //desenhar nuvem1
-  c2.drawme(); //desenhar nuvem2
-  c3.drawme(); //desenhar nuvem3
-  c1.move(); //mover a nuvem1
-  c2.move(); //mover a nuvem2
-  c3.move(); //mover a nuvem3
-  p1.drawme(); //desenhar o player1
-  p1.moveme(); //mover o player1
-  b1.drawme(); //desenhar as balas
-  b1.moveme(); //mover as balas
-  e1.drawme(); //desenhar o enimigo
-  e1.move(); //Bmover o enimo
-//  e1.healthcheck(); //verificar se o enimigo morreu ou nao
-  score();
-  b1.enemycheck(); //verificar se a bala atingiu o enimigo  
+//menu calls
+  m.start();
+
 }
 
 //tenho que validar se a bala atinge o objeto dentro do draw
@@ -121,5 +112,5 @@ void gameLost() {
 }
 
 void mousePressed() {
-  if(state == false) if(mouseX < height/2  && mouseY < width/2) state = true;
+  if(state == true) state = false;
 }

@@ -1,3 +1,6 @@
+// Importar G4P 
+import g4p_controls.*;
+
 //inicializar objetos
 CloudsGen c1;
 CloudsGen c2;
@@ -10,11 +13,13 @@ int score = 0;
 //codigo apenas corrido 1x (inicio do programa)
 void setup() {
 
+  fullScreen(JAVA2D);
+  createGUI();
+  customGUI();
+
   rectMode(CENTER);
 
   frameRate(25);
-
-  fullScreen(P2D);
 
   //nuvem 1
   c1 = new CloudsGen("cloud1.png", 100, random(height));
@@ -52,6 +57,11 @@ void draw() {
 //  e1.healthcheck(); //verificar se o enimigo morreu ou nao
   score();
   b1.enemycheck(); //verificar se a bala atingiu o enimigo  
+}
+
+//Customizar o GUI
+public void customGUI(){
+
 }
 
 //tenho que validar se a bala atinge o objeto dentro do draw

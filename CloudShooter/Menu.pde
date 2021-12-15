@@ -1,10 +1,10 @@
 class Menu{
 
-//propriedades
+
 float posX, posY;
 boolean state;
 
-//constructor    
+ 
     Menu(float x, float y) {
 
         posX = x;
@@ -23,7 +23,7 @@ boolean state;
             rect(posX+100, posY, 100, 100);
 
         } else {
-
+            //claudio fez esta parte do codigo
             background(0, 80, 255); //background azul temporario
             c1.drawme(); //desenhar nuvem1
             c2.drawme(); //desenhar nuvem2
@@ -46,3 +46,5 @@ boolean state;
     }
 
 }
+
+//para catarina comentar o codigo acima

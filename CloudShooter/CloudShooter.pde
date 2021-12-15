@@ -18,7 +18,7 @@ void setup() {
   fullScreen(P2D);
 
   //menu start
-  m = new Menu(height/2, width/2);
+  m = new Menu(width/2, height/2);
   //nuvem 1
   c1 = new CloudsGen("cloud1.png", 100, random(height));
   //nuvem 2

@@ -35,7 +35,7 @@ int score = 0;
   /* size commented out by preprocessor */;
 
   //menu start
-  m = new Menu(height/2, width/2);
+  m = new Menu(width/2, height/2);
   //nuvem 1
   c1 = new CloudsGen("cloud1.png", 100, random(height));
   //nuvem 2
@@ -225,18 +225,22 @@ class Enemy {
 //fazer enimigo andar pelo canvas variando velocidade horizontal e posicao vertical aleatoria
    public void move() {
   
-    tam = randomGaussian();
-    tam = tam * dp + mediaY; 
+    //tam = randomGaussian();
+    //tam = tam * dp + mediaY; 
     tsmoothed = noise(trand); //posicao vertical dinamica, dificuldade 0
-    tsmoothed = map(tsmoothed, 0, 1, posY, width-tam);
-    tam = tsmoothed;
+    tsmoothed = map(tsmoothed, 0, 1, tam, width-tam);
+    posY = tsmoothed;
 
     if (posX < 0) {
+      delay(250);
       posX = width + tam;
-    } else
+     
+    } else {
       posX -= vel;
+      trand += 0.05f;
+      
+    }
 
-    trand += 0.05f;
   }
 
 /* placeholder para verificar se foi atingiho pela bala*/
@@ -270,7 +274,9 @@ boolean state;
 
         if (state == true) {
 
-            rect(posX, posY, height, width);
+            fill(140, 60 ,05);
+            rect(posX-100, posY, 100, 100);
+            rect(posX+100, posY, 100, 100);
 
         } else {
 

@@ -18,7 +18,9 @@ boolean state;
 
         if (state == true) {
 
-            rect(posX, posY, height, width);
+            fill(140, 60 ,05);
+            rect(posX-100, posY, 100, 100);
+            rect(posX+100, posY, 100, 100);
 
         } else {
 

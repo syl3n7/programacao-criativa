@@ -14,13 +14,13 @@ int score = 0;
 //codigo apenas corrido 1x (inicio do programa)
 void setup() {
 
-  fullScreen(JAVA2D);
+  fullScreen(P2D); //utilizado para por o canvas em full screen
   createGUI();
   customGUI();
 
-  rectMode(CENTER);
+  rectMode(CENTER); //função usada para centrar os rectângulos
 
-  frameRate(25);
+  frameRate(25); //especificar framerate a usar
 
   //menu start
   m = new Menu(width/2, height/2);

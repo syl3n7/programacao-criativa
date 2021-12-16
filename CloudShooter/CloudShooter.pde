@@ -23,17 +23,17 @@ void setup() {
   //menu start
   m = new Menu(width/2, height/2);
   //nuvem 1
-  c1 = new CloudsGen("cloud1.png", 100, random(height));
+  c1 = new CloudsGen("/assets/images/cloud1.png", 100, random(height));
   //nuvem 2
-  c2 = new CloudsGen("cloud2.png", 200, random(height));
+  c2 = new CloudsGen("/assets/images/cloud2.png", 200, random(height));
   //nuvem 3
-  c3 = new CloudsGen("cloud3.png", 300, random(height));
+  c3 = new CloudsGen("/assets/images/cloud3.png", 300, random(height));
   //player 1
-  p1 = new Player("f16.png", 0, 0, 20);
+  p1 = new Player("/assets/images/f16.png", 0, 0, 20);
   //bullet 1
-  b1 = new Bullets("bullet.png", -650, -650/2, 100);
+  b1 = new Bullets("/assets/images/bullet.png", -650, -650/2, 100);
   //enemy 1
-  e1 = new Enemy("ovni.png", (width - 300), (height - 300), 150, 5, 100);
+  e1 = new Enemy("/assets/images/ovni.png", (width - 300), (height - 300), 150, 5, 100);
 
 }
 

@@ -15,8 +15,6 @@ int score = 0;
 void setup() {
 
   fullScreen(P2D); //utilizado para por o canvas em full screen
-  createGUI();
-  customGUI();
 
   rectMode(CENTER); //função usada para centrar os rectângulos
 
@@ -40,7 +38,7 @@ void setup() {
 }
 
 
-//quero adicionar um background que vai mudando a HUE de modo a ser dia/noite usar com imagem de forma a alterar os pixeis.
+//quero adicionar um background que vai mudando a HUE de modo a ser dia/noite.
 
 //desenhar os elementos do programa no ecra
 void draw() {

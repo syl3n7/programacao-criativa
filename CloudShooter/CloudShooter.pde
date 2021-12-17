@@ -12,20 +12,8 @@ Bullets b1;
 Enemy e1;
 int score = 0;
 
-public void settings() {
-  controlIO = ControlIO.getInstance(this);  
-}
-
 //codigo apenas corrido 1x (inicio do programa)
-void setup() {
-
-  List<ControlDevice> devices = controlIO.getDevices();
-  //add entry for device added
-  for(ControlDevice device d : devices) {
-    if(d != null && !d.getTypeName().equalsIgnoreCase("keyboard")) 
-      deviceEntries.add(new TSelectEntry(this, controlIO, d));
-  }
-  
+void setup() {  
 
   fullScreen(P2D); //utilizado para por o canvas em full screen
 

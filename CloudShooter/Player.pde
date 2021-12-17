@@ -23,13 +23,11 @@ class Player {
     moveUp = false;  
   }
 
-  //spawn da imagem mediante parametros indicados
+  //spawn da imagem mediante parametros indicados + resize para tamanho pretendido
   void drawme() {
     img.resize(650, 350);
     image(img, posX, posY);
   }
-
-  //tenho que adicionar movimento com variaveis boleanas para ser smooth
 
   //damage radius
   void damage() {

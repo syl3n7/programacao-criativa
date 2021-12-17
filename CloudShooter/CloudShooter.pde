@@ -1,5 +1,11 @@
+<<<<<<< Updated upstream
 // Importar tudo da library GCP
 import org.gamecontrolplus.*;
+=======
+// Importar G4P 
+import g4p_controls.*;
+import 
+>>>>>>> Stashed changes
 
 //inicializar objetos
 ControlIO controlIO; //usar controlador
@@ -61,9 +67,18 @@ void draw() {
 
 }
 
+<<<<<<< Updated upstream
 //tenho que validar se a bala atinge o objeto dentro do draw
+=======
+//Customizar o GUI
+public void customGUI(){
+
+}
+
+//ja valido se a bala atinge o objeto, falta colocar dano por bala e definir health para o ovni.
+>>>>>>> Stashed changes
 void keyPressed() {
-  //falta por a bala a mover-se.
+  //falta por a bala a funcionar como no movimento smooth.
   if (key == ' ') {
     p1.shoot();
   }

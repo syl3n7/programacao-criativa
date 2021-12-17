@@ -4,7 +4,8 @@ import processing.data.*;
 import processing.event.*;
 import processing.opengl.*;
 
-import g4p_controls.*;
+import org.gamecontrolplus.ControlDevice;
+import org.gamecontrolplus.ControlIO;
 
 import java.util.HashMap;
 import java.util.ArrayList;
@@ -17,7 +18,8 @@ import java.io.IOException;
 
 public class CloudShooter extends PApplet {
 
-// Importar G4P 
+// Importar ControlDevice & ControlIO
+
 
 
 //inicializar objetos

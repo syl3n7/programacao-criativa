@@ -1,7 +1,8 @@
-// Importar G4P 
-import g4p_controls.*;
+// Importar tudo da library GCP
+import org.gamecontrolplus.*;
 
 //inicializar objetos
+ControlIO controlIO; //usar controlador
 Menu m;
 CloudsGen c1;
 CloudsGen c2;
@@ -11,8 +12,20 @@ Bullets b1;
 Enemy e1;
 int score = 0;
 
+public void settings() {
+  controlIO = ControlIO.getInstance(this);  
+}
+
 //codigo apenas corrido 1x (inicio do programa)
 void setup() {
+
+  List<ControlDevice> devices = controlIO.getDevices();
+  //add entry for device added
+  for(ControlDevice device d : devices) {
+    if(d != null && !d.getTypeName().equalsIgnoreCase("keyboard")) 
+      deviceEntries.add(new TSelectEntry(this, controlIO, d));
+  }
+  
 
   fullScreen(P2D); //utilizado para por o canvas em full screen
 
@@ -45,11 +58,6 @@ void draw() {
 
 //menu calls
   m.start();
-
-}
-
-//Customizar o GUI
-public void customGUI(){
 
 }
 
